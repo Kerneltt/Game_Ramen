@@ -13,6 +13,7 @@ public class ResourceManager : MonoBehaviour
     GameObject Grid;
     [SerializeField]
     GameObject inputField;
+    private string saveFileName; 
     public int playerID;
     public int previousID;
     string[] saveFiles;
@@ -78,17 +79,32 @@ public class ResourceManager : MonoBehaviour
 
     public void SaveResourceInfo()
     {
-        string filename =saveFiles+ "Resources" + (saveFiles.Length-1)+"|";
-        string resourceInfo="";
-        foreach (Resource item in GetComponent<ResourceList>().resourceList)
+
+        string resourceInfo="";            
+        string resourcesFiles = PlayerPrefs.GetString("ResourcesFile");
+
+        if (saveFiles.Contains(saveFileName))
         {
-            resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
-            resourceInfo += item.tresholdMax + "|";
+            print("Nombre de Plantilla existente ! :D")
         }
 
-        PlayerPrefs.SetString("Resources",resourceInfo);
-        PlayerPrefs.SetString("ResourcesFile", filename);
-        print(PlayerPrefs.GetString("Resources"));
+        else
+        {   
+            resourcesFiles += "|" +saveFileName;
+            resourceSlotName = "RTslot" + saveFileName;
+            foreach (Resource item in GetComponent<ResourceList>().resourceList)
+            {
+                resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
+                resourceInfo += item.tresholdMax + "|";
+            }
+
+            PlayerPrefs.SetString(resourceSlotName,resourceInfo);
+            PlayerPrefs.SetString("ResourcesFile", resourcesFiles);
+            print(PlayerPrefs.GetString(resourceSlotName));
+        }
+
+
+        
     }
     public void PrefReset()
     {
@@ -99,7 +115,8 @@ public class ResourceManager : MonoBehaviour
         DeleteResources();
         char spliter = '|';
         char spliterName = ';';
-        string[] resources = PlayerPrefs.GetString("Resources").Split(spliter);        
+        string resourceTemplateList = PlayerPrefs.GetString("RTslot"+saveFileName);
+        string[] resources = PlayerPrefs.GetString(resourceTemplateList).Split(spliter);      
         foreach (string res in resources)
         {
             if (res!="")
@@ -117,4 +134,6 @@ public class ResourceManager : MonoBehaviour
     {
         gameObject.GetComponent<ResourceList>().Clear();
     }
+
+
 }
