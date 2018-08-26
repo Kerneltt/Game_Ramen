@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{F6843EF6-B364-8830-A943-5C7B1882C0B1}</ProjectGuid>
+    <ProjectGuid>{1B08D1AC-844D-DD6A-4D90-731D1DE2259D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -75,16 +75,16 @@
     <Compile Include="Assets\Scripts\ResourceList.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
