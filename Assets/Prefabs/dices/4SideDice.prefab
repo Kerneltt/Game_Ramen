@@ -486,6 +486,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4f36279ced449769b61735fe9f610c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
+  myNumbers:
+  - {fileID: 4119709888464082}
+  - {fileID: 4583430816763660}
+  - {fileID: 4609908679978778}
+  - {fileID: 4756715353632818}
 --- !u!135 &135562109723896546
 SphereCollider:
   m_ObjectHideFlags: 1

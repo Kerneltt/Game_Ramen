@@ -1,23 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
-public class Dice : MonoBehaviour {
+public class Dice : MonoBehaviour
+{
+
+    DiceTester diceTester;
 
     public bool locked = false;
+
+    bool rolling = false;
 
     private Rigidbody myRG;
 
     float upForce = 2f;
 
-	// Use this for initialization
+    public Transform[] myNumbers;
+
+    public Text numberDysplay;
+
 	void Start () {
         myRG = GetComponent<Rigidbody>();
+
+        Text[] texts = transform.root.GetComponentsInChildren<Text>();
+
+        foreach(Text txt in texts)
+        {
+            if(txt.transform.tag == "DiceNumber")
+            {
+                numberDysplay = txt;
+            }
+        }
+
+        diceTester = FindObjectOfType<DiceTester>();
 	}
+
+    private void Update()
+    {
+        if(rolling)
+        {
+            if(myRG.velocity.sqrMagnitude < 0.01f && myRG.angularVelocity.sqrMagnitude < 0.01f)
+            {
+                rolling = false;
+                myRG.velocity = Vector3.zero;
+                myRG.angularVelocity = Vector3.zero;
+                Debug.Log("checking number");
+                CheckDiceNumber();
+            }
+        }
+    }
 
     public void RollDice(){
         if (locked)
             return;
+
+        Invoke("StartDetecting", 2f);
 
         float randomNum = Random.Range(2f, 10f);
 
@@ -27,6 +63,30 @@ public class Dice : MonoBehaviour {
 
         myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
 
+        numberDysplay.text = "";
+    }
+
+    void CheckDiceNumber() 
+    {
+        Transform numberTop = myNumbers[0];
+        float height = 0;
+        float maxHeight = -2f;
+        foreach(Transform num in myNumbers)
+        {
+            height = num.position.y;
+            if(height > maxHeight)
+            {
+                numberTop = num;
+                maxHeight = num.position.y;
+            }
+        }
+        Debug.Log("answer: " + numberTop.name);
+        numberDysplay.text = numberTop.name;
+    }
+
+    void StartDetecting()
+    {
+        rolling = true; 
     }
 
     public void LockDice()
@@ -41,6 +101,8 @@ public class Dice : MonoBehaviour {
 
     public void RemoveDice()
     {
+        diceTester.RemoveDice(transform.root.gameObject);
+        diceTester.ReorderAll();
         Destroy(transform.root.gameObject);
     }
 }

@@ -1926,6 +1926,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4f36279ced449769b61735fe9f610c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
+  myNumbers:
+  - {fileID: 4565076069051672}
+  - {fileID: 4238864256685354}
+  - {fileID: 4696176483780892}
+  - {fileID: 4893211400287696}
+  - {fileID: 4475860090616804}
+  - {fileID: 4091601364804850}
+  - {fileID: 4750118677162988}
+  - {fileID: 4043182689162534}
+  - {fileID: 4064355302983710}
+  - {fileID: 4665158169434248}
+  - {fileID: 4794100907942714}
+  - {fileID: 4117390971752384}
+  - {fileID: 4846155627734386}
+  - {fileID: 4529222315307636}
+  - {fileID: 4150579505527800}
+  - {fileID: 4243579832485434}
+  - {fileID: 4575023726155662}
+  - {fileID: 4482934540604488}
+  - {fileID: 4633773618297904}
+  - {fileID: 4997967665407558}
 --- !u!135 &135082927139593854
 SphereCollider:
   m_ObjectHideFlags: 1

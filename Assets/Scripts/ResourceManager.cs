@@ -13,14 +13,28 @@ public class ResourceManager : MonoBehaviour
     GameObject Grid;
     [SerializeField]
     GameObject inputField;
+    [SerializeField]
+    GameObject loadButton;
+    [SerializeField]
+    GameObject loadContentPanel;
     private string saveFileName; 
     public int playerID;
     public int previousID;
     string[] saveFiles;
+    List<string> filesList=new List<string>();
     // Use this for initialization
     void Start()
     {
         saveFiles = PlayerPrefs.GetString("ResourcesFile").Split('|');
+        for (int i = 0; i < saveFiles.Length; i++)
+        {
+            filesList.Add(saveFiles[i]);
+        }
+        for (int x = 0; x < saveFiles.Length; x++)
+        {
+            GameObject temp = (GameObject)Instantiate(loadButton);
+            temp.transform.SetParent(loadContentPanel.transform, false);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -83,15 +97,15 @@ public class ResourceManager : MonoBehaviour
         string resourceInfo="";            
         string resourcesFiles = PlayerPrefs.GetString("ResourcesFile");
 
-        if (saveFiles.Contains(saveFileName))
+        if (filesList.Contains(saveFileName))
         {
-            print("Nombre de Plantilla existente ! :D")
+            print("Nombre de Plantilla existente ! :D");
         }
 
         else
         {   
             resourcesFiles += "|" +saveFileName;
-            resourceSlotName = "RTslot" + saveFileName;
+            string resourceSlotName = "RTslot" + saveFileName;
             foreach (Resource item in GetComponent<ResourceList>().resourceList)
             {
                 resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
