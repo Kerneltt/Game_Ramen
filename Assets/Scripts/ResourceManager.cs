@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,29 +18,56 @@ public class ResourceManager : MonoBehaviour
     [SerializeField]
     GameObject loadContentPanel;
     private string saveFileName; 
+    public int contadorSaves;
     public int playerID;
     public int previousID;
     string[] saveFiles;
+    int indexNumber; 
     List<string> filesList=new List<string>();
     // Use this for initialization
     void Start()
     {
         saveFiles = PlayerPrefs.GetString("ResourcesFile").Split('|');
+        if (saveFiles.Length == 1){
+            if (saveFiles[0].Equals("")){
+                contadorSaves = 0; 
+                return ;
+            }
+        }   
         for (int i = 0; i < saveFiles.Length; i++)
         {
-            filesList.Add(saveFiles[i]);
+            if (!saveFiles[i].Equals("")){
+                filesList.Add(saveFiles[i]);
+                contadorSaves++;
+            }
+            
         }
-        for (int x = 0; x < saveFiles.Length; x++)
-        {
-            GameObject temp = (GameObject)Instantiate(loadButton);
-            temp.transform.SetParent(loadContentPanel.transform, false);
-        }
+
+        contadorSaves = saveFiles.Length; 
+        UpdateSaves();
     }
     // Update is called once per frame
     void Update()
     {
 
     }
+    // Update save files to show on the load options
+    public void UpdateSaves(){
+        foreach(RectTransform child in loadContentPanel.GetComponentInChildren<RectTransform>()){
+            Destroy(child.gameObject);
+        }
+        for (int x = 0; x < saveFiles.Length; x++)
+        {
+            if(!saveFiles[x].Equals("")){
+                GameObject initial = Instantiate(loadButton);
+                Button temp = initial.GetComponent<Button>();
+                temp.transform.SetParent(loadContentPanel.transform, false);
+                temp.GetComponentInChildren<Text>().text = saveFiles[x];
+                temp.onClick.AddListener(delegate {identifyButton(x); });
+            }
+        }
+    }
+
     // Get player avaible, if able
     public void Newplayer()
     {
@@ -97,33 +124,36 @@ public class ResourceManager : MonoBehaviour
         string resourceInfo="";            
         string resourcesFiles = PlayerPrefs.GetString("ResourcesFile");
 
-        if (filesList.Contains(saveFileName))
+        //---------------------------Pruebas para update in rial time no feik de los loads
+        string saveFileString = "templateSlot" +contadorSaves;
+        string[] remplazo = new string[saveFiles.Length + 1];
+        for (int x = 0; x < saveFiles.Length; x++){
+            remplazo[x] = saveFiles[x];
+        }
+        remplazo[(saveFiles.Length)] = saveFileString;
+        saveFiles = remplazo;
+        
+        //------------------------------------------------------------------------------------
+
+        resourcesFiles += "|" + saveFileString; 
+        string resourceSlotName = "RTslot" + contadorSaves;
+        contadorSaves ++; 
+        foreach (Resource item in GetComponent<ResourceList>().resourceList)
         {
-            print("Nombre de Plantilla existente ! :D");
+            resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
+            resourceInfo += item.tresholdMax + "|";
         }
-
-        else
-        {   
-            resourcesFiles += "|" +saveFileName;
-            string resourceSlotName = "RTslot" + saveFileName;
-            foreach (Resource item in GetComponent<ResourceList>().resourceList)
-            {
-                resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
-                resourceInfo += item.tresholdMax + "|";
-            }
-
-            PlayerPrefs.SetString(resourceSlotName,resourceInfo);
-            PlayerPrefs.SetString("ResourcesFile", resourcesFiles);
-            print(PlayerPrefs.GetString(resourceSlotName));
-        }
-
-
+        PlayerPrefs.SetString(resourceSlotName,resourceInfo);
+        PlayerPrefs.SetString("ResourcesFile", resourcesFiles);
+        UpdateSaves(); 
+        
         
     }
     public void PrefReset()
     {
         PlayerPrefs.SetString("Resources", "");
     }
+   
     public void LoadResource()
     {
         DeleteResources();
@@ -137,7 +167,6 @@ public class ResourceManager : MonoBehaviour
             {
                 string name = res.Split(spliterName)[0];
                 string restresh = res.Split(spliterName)[1];
-                print(res);
                 GetComponent<ResourceList>().LoadResoruce(int.Parse(restresh), name);
             }
             
@@ -149,5 +178,9 @@ public class ResourceManager : MonoBehaviour
         gameObject.GetComponent<ResourceList>().Clear();
     }
 
+    void identifyButton(int index)
+    {
+        indexNumber = index; 
+    }
 
 }
