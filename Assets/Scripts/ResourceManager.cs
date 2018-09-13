@@ -136,14 +136,13 @@ public class ResourceManager : MonoBehaviour
         //------------------------------------------------------------------------------------
 
         resourcesFiles += "|" + saveFileString; 
-        string resourceSlotName = "RTslot" + contadorSaves;
         contadorSaves ++; 
         foreach (Resource item in GetComponent<ResourceList>().resourceList)
         {
             resourceInfo += item.gameObject.GetComponentInChildren<Text>().text+";";
             resourceInfo += item.tresholdMax + "|";
         }
-        PlayerPrefs.SetString(resourceSlotName,resourceInfo);
+        PlayerPrefs.SetString(saveFileString,resourceInfo);
         PlayerPrefs.SetString("ResourcesFile", resourcesFiles);
         UpdateSaves(); 
         
@@ -182,5 +181,6 @@ public class ResourceManager : MonoBehaviour
     {
         indexNumber = index; 
     }
+    
 
 }
