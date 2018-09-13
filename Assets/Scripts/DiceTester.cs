@@ -21,7 +21,7 @@ public class DiceTester : MonoBehaviour {
     int totalDices = 0;
 
     float containerXPos = 11;
-    float containerYPos = 0;
+    float containerYPos = 3;
 
     float columnMulti = 3;
 
@@ -142,7 +142,7 @@ public class DiceTester : MonoBehaviour {
         }
         containerXPos += 11f;
 
-        if(diceContainers.Count / 4f > columnMulti)
+        if(diceContainers.Count / 2f > columnMulti)
         {
             columnMulti += 1f;
             Vector3 newPos = new Vector3(transform.position.x,
@@ -157,7 +157,7 @@ public class DiceTester : MonoBehaviour {
         diceContainers.Remove(removedContainer);
         if(columnMulti - 1 >= 3)
         {
-            if (diceContainers.Count / 4f < columnMulti - 1)
+            if (diceContainers.Count / 2f < columnMulti - 1)
             {
                 columnMulti -= 1f;
                 Vector3 newPos = new Vector3(transform.position.x,
