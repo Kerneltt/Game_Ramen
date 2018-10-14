@@ -60,10 +60,10 @@ public class ResourceManager : MonoBehaviour
         {
             if(!saveFiles[x].Equals("")){
                 GameObject initial = Instantiate(loadButton);
-                Button temp = initial.GetComponent<Button>();
-                temp.transform.SetParent(loadContentPanel.transform, false);
-                temp.GetComponentInChildren<Text>().text = saveFiles[x];
-                temp.onClick.AddListener(delegate {identifyButton(x); });
+                //Button temp = initial.GetComponent<Button>();
+                initial.transform.SetParent(loadContentPanel.transform, false);
+                initial.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = saveFiles[x];
+                initial.GetComponentInChildren<Button>().onClick.AddListener(delegate {identifyButton(x); });
             }
         }
     }

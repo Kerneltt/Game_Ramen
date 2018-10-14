@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/DiceRoller.unity
     guid: 002c3f6aef0ee493682d878c8c883f67
   - enabled: 1
-    path: Assets/Scenes/PointTracker.unity
-    guid: a652e3f7015603d42ae8a45f0b4dd626
-  - enabled: 1
     path: Assets/Scenes/ResourceTracker.unity
     guid: f629cdf0dc3a1994bb74aafc4c870aa8
   - enabled: 1
     path: Assets/Scenes/UIDiceRoller.unity
     guid: 22e26bab346824e3fbdf46386cd9dc77
+  - enabled: 1
+    path: Assets/Scenes/PointTracker.unity
+    guid: d459572da9f19dc4095c64f16c9730f4
   m_configObjects: {}

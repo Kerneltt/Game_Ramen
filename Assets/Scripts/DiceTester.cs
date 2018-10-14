@@ -37,112 +37,133 @@ public class DiceTester : MonoBehaviour {
 
     public void SpawnD4()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count<9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d4, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d4, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD6()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d6, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d6, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD8()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d8, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d8, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD10()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d10, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d10, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD12()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d12, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d12, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD20()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d20, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d20, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     public void SpawnD100()
     {
-        GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
-        for (int i = 0; i < go.transform.childCount; i++)
+        if (diceContainers.Count < 9)
         {
-            if (go.transform.GetChild(i).tag == "Respawn")
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
             {
-                GameObject diceGo = Instantiate(d100, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
-                CheckPosition();
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d100, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
             }
+            diceContainers.Add(go);
         }
-        diceContainers.Add(go);
     }
 
     void CheckPosition()
     {
-        if (containerXPos >= 40)
+        if (containerXPos >= 30)
         {
             containerXPos = 0f;
             containerYPos += 11f;
         }
         containerXPos += 11f;
 
-        if(diceContainers.Count / 2f > columnMulti)
+        if(diceContainers.Count / 2f > columnMulti-1)
         {
             columnMulti += 1f;
             Vector3 newPos = new Vector3(transform.position.x,

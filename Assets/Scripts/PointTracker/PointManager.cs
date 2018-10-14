@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PointManager : MonoBehaviour {
     [SerializeField]
     List<GameObject> players;
-    private int playerIndex = 1;
+    private int playerIndex = 2;
 
     private int pointIndex = 1;
     // Use this for initialization
@@ -14,9 +14,9 @@ public class PointManager : MonoBehaviour {
     public void Showplayer()
     {
         if (playerIndex<players.Count)
-        {
-            playerIndex++;
+        {            
             players[playerIndex].SetActive(true);
+            playerIndex++;
         }
         
     }
@@ -32,12 +32,14 @@ public class PointManager : MonoBehaviour {
 
     public void ShowPointField()
     {
-        pointIndex++;
-        foreach (GameObject player in players)
-        {
-            player.GetComponent<PointPlayer>().points[pointIndex].SetActive(true);
-            player.GetComponent<PointPlayer>().points[pointIndex].GetComponent<InputField>().text="0";
-        }
-        
+        if (pointIndex<players[0].GetComponent<PointPlayer>().points.Count)
+        {            
+            foreach (GameObject player in players)
+            {
+                player.GetComponent<PointPlayer>().points[pointIndex].SetActive(true);
+                player.GetComponent<PointPlayer>().points[pointIndex].GetComponent<InputField>().text = "0";
+            }
+            pointIndex++;
+        }                
     }
 }
