@@ -11,9 +11,12 @@ public class PointTracker : MonoBehaviour {
 	private int pointsCount;
 	private List<GameObject> playerList;
 	private List<float> multiplierList;
-
-	// Use this for initialization
-	void Start () {
+    private int maxPlayers = 5;
+    private int curPlayers = 1;
+    private int maxPoints = 8;
+    private int curPoints = 1;
+    // Use this for initialization
+    void Start () {
 		Transform mManager = transform.Find ("MultiplierManager");
 		GameObject player = Instantiate (Player);
 		pointsCount = 1;
@@ -35,12 +38,17 @@ public class PointTracker : MonoBehaviour {
 
 	public void addPlayer()
 	{
-		GameObject player = Instantiate (Player);
-		player.transform.parent = this.transform;
-		player.GetComponent<Player>().SetPointsField (pointsCount);
-		Debug.Log (pointsCount);
-		playerList.Add (player);
-		player.GetComponent<Player> ().setMutiplierList (this.multiplierList);
+        if (curPlayers<maxPlayers)
+        {
+            GameObject player = Instantiate(Player);
+            player.transform.SetParent(this.gameObject.transform);
+            player.GetComponent<Player>().SetPointsField(pointsCount);
+            Debug.Log(pointsCount);
+            playerList.Add(player);
+            player.GetComponent<Player>().setMutiplierList(this.multiplierList);
+            curPlayers++;
+        }
+		
 	}
 
 	public void removePlayer(int index)
@@ -51,17 +59,27 @@ public class PointTracker : MonoBehaviour {
 
 	public void addPointsField()
 	{
-		foreach (RectTransform child in transform) {
-			if (child.tag == "Points") {
-				child.gameObject.GetComponent<PointsManager> ().AddPointsText ();
-			} else if (child.tag == "Multiplier") {
-				child.gameObject.GetComponent<MultiplierManager> ().AddMultiplierField ();
-			} else {
-				child.GetComponent<Player> ().AddPointsField ();
-			}
-		}
-	
-		this.pointsCount += 1;
+        if (curPoints<maxPoints)
+        {
+            foreach (RectTransform child in transform)
+            {
+                if (child.tag == "Points")
+                {
+                    child.gameObject.GetComponent<PointsManager>().AddPointsText();
+                }
+                else if (child.tag == "Multiplier")
+                {
+                    child.gameObject.GetComponent<MultiplierManager>().AddMultiplierField();
+                }
+                else
+                {
+                    child.GetComponent<Player>().AddPointsField();
+                }
+            }
+            this.pointsCount += 1;
+            curPoints++;
+        }
+		
 
 	}
 

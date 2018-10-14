@@ -71,9 +71,13 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PointsManager.cs" />
     <Compile Include="Assets\Scripts\PointTracker.cs" />
+    <Compile Include="Assets\Scripts\PointTracker\PointManager.cs" />
+    <Compile Include="Assets\Scripts\PointTracker\PointPlayer.cs" />
+    <Compile Include="Assets\Scripts\PointTracker\TotalsManager.cs" />
     <Compile Include="Assets\Scripts\Resource.cs" />
     <Compile Include="Assets\Scripts\ResourceList.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\TouchRotation.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

@@ -19,7 +19,7 @@ public class PointsManager : MonoBehaviour {
 
 	public void AddPointsText() {
 		GameObject points = Instantiate (PointsText);
-		points.transform.parent = this.transform;
+		points.transform.SetParent(this.transform);
 		//addPointsButton.transform.SetAsLastSibling ();
 	}
 }

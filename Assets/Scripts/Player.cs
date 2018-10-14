@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
     public void AddPointsField()
     {
 		GameObject pointsField = Instantiate (PointsField);
-		pointsField.transform.parent = transform;
+        pointsField.transform.SetParent(transform);
 		pfList.Add (pointsField);
 
 		totalField.transform.SetAsLastSibling ();
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 
 		for (int i = pointsCount; i < x; i++) {
 			GameObject points = Instantiate (PointsField);
-			points.transform.parent = this.transform;
+			points.transform.SetParent(this.transform);
 			pfList.Add (points);
 
 		}

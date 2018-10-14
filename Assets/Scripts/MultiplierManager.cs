@@ -22,7 +22,7 @@ public class MultiplierManager : MonoBehaviour {
 
 	public void AddMultiplierField() {
 		GameObject newField = Instantiate (MultiplierField);
-		newField.transform.parent = this.transform;
+		newField.transform.SetParent(this.transform);
 		newField.GetComponent<InputField> ().text = "1"	;
 
 
