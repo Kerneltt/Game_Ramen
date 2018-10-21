@@ -16,6 +16,8 @@ public class ResourceManager : MonoBehaviour
     [SerializeField]
     GameObject loadButton;
     [SerializeField]
+    GameObject loadEraseButton; 
+    [SerializeField]
     GameObject loadContentPanel;
     private string saveFileName; 
     public int contadorSaves;
@@ -180,6 +182,30 @@ public class ResourceManager : MonoBehaviour
     void identifyButton(int index)
     {
         indexNumber = index; 
+    }
+
+    // Update save files to show on the load options
+    public void UpdateList(){
+        contadorSaves = 0; 
+        for (int i = 0; i < saveFiles.Length; i++)
+        {
+            if (!saveFiles[i].Equals("")){
+                filesList.Add(saveFiles[i]);
+                contadorSaves++;
+            }
+            
+        }
+    }
+
+    void DestroyTemplate(string templateName){
+        UpdateList(); 
+        filesList.Remove(templateName); 
+        string resourceFiles = PlayerPrefs.GetString("ResourceFile");
+        string result = resourceFiles.Replace(templateName, ""); 
+        PlayerPrefs.SetString("ResourcesFile", result); 
+
+        PlayerPrefs.SetString(templateName, "");
+        saveFiles = filesList.ToArray(); 
     }
     
 
