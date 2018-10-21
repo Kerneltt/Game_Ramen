@@ -14,6 +14,8 @@ public class ResourceManager : MonoBehaviour
     [SerializeField]
     GameObject inputField;
     [SerializeField]
+    GameObject loadTemplate; 
+    [SerializeField]
     GameObject loadButton;
     [SerializeField]
     GameObject loadEraseButton; 
@@ -94,9 +96,7 @@ public class ResourceManager : MonoBehaviour
                   //  ResourceList newKid = Instantiate(PlayerList[0]);
                   //  newKid.ResetResources();
                   //  rl = newKid;
-
                 }
-
                 PlayerList.Add(rl);
                 avaiablePlayers[i] = 0;
                 break;
