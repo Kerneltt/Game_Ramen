@@ -3713,7 +3713,7 @@ MonoBehaviour:
   Grid: {fileID: 1197059755}
   inputField: {fileID: 246251098}
   loadTemplate: {fileID: 0}
-  loadButton: {fileID: 1855484459580910, guid: e69cf0c87201a8347884fe6735a74e1d, type: 2}
+  loadButton: {fileID: 1064828788574450, guid: e69cf0c87201a8347884fe6735a74e1d, type: 2}
   loadEraseButton: {fileID: 1391400925828478, guid: e69cf0c87201a8347884fe6735a74e1d,
     type: 2}
   loadContentPanel: {fileID: 1342283424}
