@@ -11,14 +11,22 @@ public class PointManager : MonoBehaviour {
     private int pointIndex = 1;
     // Use this for initialization
 
-    public void Showplayer()
+    public void ShowPlayer()
     {
         if (playerIndex<players.Count)
         {            
             players[playerIndex].SetActive(true);
             playerIndex++;
+        }       
+    }
+
+    public void HidePlayer()
+    {
+        if (playerIndex > 2)
+        {
+            playerIndex--;
+            players[playerIndex].SetActive(false);            
         }
-        
     }
 
     public void recalculateTotals()
@@ -41,5 +49,18 @@ public class PointManager : MonoBehaviour {
             }
             pointIndex++;
         }                
+    }
+
+    public void HidePointField()
+    {
+        if (pointIndex > 1)
+        {
+            pointIndex--;
+            foreach (GameObject player in players)
+            {
+                player.GetComponent<PointPlayer>().points[pointIndex].SetActive(false);
+                player.GetComponent<PointPlayer>().points[pointIndex].GetComponent<InputField>().text = "0";
+            }            
+        }
     }
 }
