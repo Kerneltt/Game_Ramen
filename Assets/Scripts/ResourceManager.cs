@@ -14,11 +14,11 @@ public class ResourceManager : MonoBehaviour
     [SerializeField]
     GameObject inputField;
     [SerializeField]
-    GameObject loadTemplate; 
+    GameObject loadTemplate;
     [SerializeField]
     GameObject loadButton;
     [SerializeField]
-    GameObject loadEraseButton; 
+    GameObject loadEraseButton;
     [SerializeField]
     GameObject loadContentPanel;
     private string saveFileName; 
@@ -56,6 +56,18 @@ public class ResourceManager : MonoBehaviour
 
     }
     // Update save files to show on the load options
+    public void UpdateList(){
+        contadorSaves = 0; 
+        for (int i = 0; i < saveFiles.Length; i++)
+        {
+            if (!saveFiles[i].Equals("")){
+                filesList.Add(saveFiles[i]);
+                contadorSaves++;
+            }
+            
+        }
+    }
+
     public void UpdateSaves(){
         foreach(RectTransform child in loadContentPanel.GetComponentInChildren<RectTransform>()){
             Destroy(child.gameObject);
@@ -63,11 +75,18 @@ public class ResourceManager : MonoBehaviour
         for (int x = 0; x < saveFiles.Length; x++)
         {
             if(!saveFiles[x].Equals("")){
-                GameObject initial = Instantiate(loadButton);
-                //Button temp = initial.GetComponent<Button>();
-                initial.transform.SetParent(loadContentPanel.transform, false);
-                initial.GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = saveFiles[x];
-                initial.GetComponentInChildren<Button>().onClick.AddListener(delegate {identifyButton(x); });
+                GameObject initial = Instantiate(loadTemplate);
+
+                Canvas temp = initial.GetComponent<Canvas>();
+                temp.transform.SetParent(loadContentPanel.transform, false); 
+                
+                Button load = temp.transform.GetChild(0).GetComponent<Button>();
+                Button delete = temp.transform.GetChild(1).GetComponent<Button>();
+                load.GetComponentInChildren<Text>().text = saveFiles[x];
+                load.onClick.AddListener(delegate {IdentifyButton(x); });
+                load.onClick.AddListener(delegate {LoadResource(); });
+
+                delete.onClick.AddListener(delegate {DestroyTemplate(saveFiles[x]);});
             }
         }
     }
@@ -96,7 +115,9 @@ public class ResourceManager : MonoBehaviour
                   //  ResourceList newKid = Instantiate(PlayerList[0]);
                   //  newKid.ResetResources();
                   //  rl = newKid;
+
                 }
+
                 PlayerList.Add(rl);
                 avaiablePlayers[i] = 0;
                 break;
@@ -116,7 +137,6 @@ public class ResourceManager : MonoBehaviour
             resource.quantity = PlayerList[index].resourceValue[ind];
             resource.SetSlider();
             ind++;
-
         }
     }
 
@@ -160,15 +180,18 @@ public class ResourceManager : MonoBehaviour
         DeleteResources();
         char spliter = '|';
         char spliterName = ';';
-        string resourceTemplateList = PlayerPrefs.GetString("RTslot"+saveFileName);
-        string[] resources = PlayerPrefs.GetString(resourceTemplateList).Split(spliter);      
+        string resourceTemplateList = PlayerPrefs.GetString(saveFileName);
+        string[] resources = resourceTemplateList.Split(spliter);  
         foreach (string res in resources)
         {
             if (res!="")
             {
+                print(res);
                 string name = res.Split(spliterName)[0];
                 string restresh = res.Split(spliterName)[1];
                 GetComponent<ResourceList>().LoadResoruce(int.Parse(restresh), name);
+                print(name);
+                print(restresh);
             }
             
         }
@@ -179,22 +202,9 @@ public class ResourceManager : MonoBehaviour
         gameObject.GetComponent<ResourceList>().Clear();
     }
 
-    void identifyButton(int index)
+    void IdentifyButton(int index)
     {
-        indexNumber = index; 
-    }
-
-    // Update save files to show on the load options
-    public void UpdateList(){
-        contadorSaves = 0; 
-        for (int i = 0; i < saveFiles.Length; i++)
-        {
-            if (!saveFiles[i].Equals("")){
-                filesList.Add(saveFiles[i]);
-                contadorSaves++;
-            }
-            
-        }
+        saveFileName = saveFiles[index -1]; 
     }
 
     void DestroyTemplate(string templateName){
@@ -207,6 +217,4 @@ public class ResourceManager : MonoBehaviour
         PlayerPrefs.SetString(templateName, "");
         saveFiles = filesList.ToArray(); 
     }
-    
-
 }
