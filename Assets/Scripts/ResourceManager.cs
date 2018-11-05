@@ -86,7 +86,7 @@ public class ResourceManager : MonoBehaviour
                 load.onClick.AddListener(delegate {IdentifyButton(x); });
                 load.onClick.AddListener(delegate {LoadResource(); });
 
-                delete.onClick.AddListener(delegate {DestroyTemplate(saveFiles[x]);});
+                delete.onClick.AddListener(delegate {DestroyTemplate(saveFiles[x-1]);});
             }
         }
     }
@@ -215,6 +215,7 @@ public class ResourceManager : MonoBehaviour
         PlayerPrefs.SetString("ResourcesFile", result); 
 
         PlayerPrefs.SetString(templateName, "");
-        saveFiles = filesList.ToArray(); 
+        saveFiles = filesList.ToArray();
+        UpdateSaves();
     }
 }

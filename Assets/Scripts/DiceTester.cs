@@ -13,6 +13,7 @@ public class DiceTester : MonoBehaviour {
     public GameObject d12;
     public GameObject d20;
     public GameObject d100;
+    public GameObject d2;
 
     public GameObject diceContainer;
 
@@ -147,6 +148,24 @@ public class DiceTester : MonoBehaviour {
                 if (go.transform.GetChild(i).tag == "Respawn")
                 {
                     GameObject diceGo = Instantiate(d100, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
+                    CheckPosition();
+                }
+            }
+            diceContainers.Add(go);
+        }
+    }
+
+
+    public void SpawnD2()
+    {
+        if (diceContainers.Count < 9)
+        {
+            GameObject go = Instantiate(diceContainer, new Vector3(containerXPos, 0f, containerYPos), Quaternion.identity);
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                if (go.transform.GetChild(i).tag == "Respawn")
+                {
+                    GameObject diceGo = Instantiate(d2, go.transform.GetChild(i).transform.position, Quaternion.identity, go.transform);
                     CheckPosition();
                 }
             }
