@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\Resource.cs" />
     <Compile Include="Assets\Scripts\ResourceList.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\ScoreDispaly.cs" />
+    <Compile Include="Assets\Scripts\ScoreSave.cs" />
     <Compile Include="Assets\Scripts\TouchRotation.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Daniel/Desktop/Proyectos Uroboros/Game Ramen/Game Ramen/Game_Ramen-master/Game_Ramen-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
