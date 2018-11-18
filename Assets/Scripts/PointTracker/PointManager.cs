@@ -19,7 +19,22 @@ public class PointManager : MonoBehaviour {
             playerIndex++;
         }       
     }
-
+    public void ClearAll()
+    {
+        foreach (GameObject player in players)
+        {
+            if (player.name!="Points" && player.name != "Modifier")
+            {
+                foreach (Transform slot in player.GetComponentInChildren<Transform>())
+                {
+                    if (slot.GetComponent<InputField>() != null)
+                    {
+                        slot.GetComponent<InputField>().text = "0";
+                    }
+                }
+            }           
+        }
+    }
     public void HidePlayer()
     {
         if (playerIndex > 2)
@@ -31,7 +46,7 @@ public class PointManager : MonoBehaviour {
 
     public void recalculateTotals()
     {
-        for (int i = 1; i < players.Count; i++)
+        for (int i = 2; i < players.Count; i++)
         {
             players[i].GetComponent<TotalsManager>().CalcTotal();
         }        

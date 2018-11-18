@@ -45,6 +45,38 @@ public class ScoreShow : MonoBehaviour {
         txtPlayer5.text = player5;
         parent.gameObject.SetActive (false);
     }
+
+    public void DeeteRegistry()
+    {
+        string reg =game+"|"+date ;
+        if (player1!="")
+        {
+            reg += "|" + player1;
+        }
+        if (player2 != "")
+        {
+            reg += "|" + player2;
+        }
+        if (player3 != "")
+        {
+            reg += "|" + player3;
+        }
+        if (player4 != "")
+        {
+            reg += "|" + player4;
+        }
+        if (player5 != "")
+        {
+            reg += "|" + player5;
+        }
+        reg =reg+"*";
+        print(reg);
+        string prefs = PlayerPrefs.GetString("ScoreLogs");
+        prefs= prefs.Replace(reg,"");
+        PlayerPrefs.SetString("ScoreLogs", prefs);
+        GameObject.FindObjectOfType<ScoreDispaly>().UpdateScores();
+        print(prefs);
+    }
     void Start () {
 		
 	}
