@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PointTracker.cs" />
     <Compile Include="Assets\Scripts\PointTracker\PointManager.cs" />
     <Compile Include="Assets\Scripts\PointTracker\PointPlayer.cs" />
+    <Compile Include="Assets\Scripts\PointTracker\ScoreShow.cs" />
     <Compile Include="Assets\Scripts\PointTracker\TotalsManager.cs" />
     <Compile Include="Assets\Scripts\Resource.cs" />
     <Compile Include="Assets\Scripts\ResourceList.cs" />

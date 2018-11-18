@@ -9,8 +9,12 @@ public class ScoreDispaly : MonoBehaviour {
     [SerializeField]
     GameObject scorePrefab;
     string[] scorestring;
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    Text txtGame,txtDate,txtP1,txtP2,txtP3,txtP4,txtP5;
+    [SerializeField]
+    Transform displayScores, buttonsPanel;
+    // Use this for initialization
+    void Start () {
         UpdateScores();
 	}
 	
@@ -32,8 +36,30 @@ public class ScoreDispaly : MonoBehaviour {
             if (registry!="")
             {
                 GameObject temp;
-                temp = Instantiate(scorePrefab);
+                temp = Instantiate(scorePrefab);                
+                temp.GetComponent<ScoreShow>().AssignUI(buttonsPanel,displayScores,txtGame,txtDate,txtP1,txtP2,txtP3,txtP4,txtP5);
                 temp.GetComponentInChildren<Button>().gameObject.GetComponentInChildren<Text>().text = substring[0]+ "\n"+ substring[1];
+                switch (substring.Length)
+                {
+                    case 3:
+                        temp.GetComponent<ScoreShow>().SetPlayers(substring[0], substring[1], substring[2], "", "", "", "");
+                        break;
+                    case 4:
+                        temp.GetComponent<ScoreShow>().SetPlayers(substring[0], substring[1], substring[2], substring[3], "", "", "");
+                        break;
+                    case 5:
+                        temp.GetComponent<ScoreShow>().SetPlayers(substring[0], substring[1], substring[2], substring[3], substring[4], "", "");
+                        break;
+                    case 6:
+                        temp.GetComponent<ScoreShow>().SetPlayers(substring[0], substring[1], substring[2], substring[3], substring[4], substring[5], "");
+                        break;
+                    case 7:
+                        temp.GetComponent<ScoreShow>().SetPlayers(substring[0], substring[1], substring[2], substring[3], substring[4], substring[5], substring[6]);
+                        break;
+                    default:
+                        break;
+                }
+                print(PlayerPrefs.GetString("ScoreLogs"));
                 temp.transform.SetParent(ScoreParent.transform);
             }            
         }

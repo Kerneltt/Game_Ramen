@@ -7,6 +7,8 @@ public class ScoreSave : MonoBehaviour {
     public GameObject[] players;
     public InputField name;
     string score;
+    [SerializeField]
+    ScoreDispaly display;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +16,11 @@ public class ScoreSave : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKey(KeyCode.Z))
+        {
+            PlayerPrefs.SetString("ScoreLogs", "");
+            print("LogsDeleted");
+        }
 	}
 
     public void OnSavePressed()
@@ -27,11 +33,13 @@ public class ScoreSave : MonoBehaviour {
             {
                 if (player.activeSelf == true)
                 {
-                    score += "#" + player.GetComponent<InputField>().text + ": " + player.GetComponent<PointPlayer>().points[8].GetComponent<InputField>().text + "*";
+                    score += "|" + player.GetComponent<InputField>().text + ": " + player.GetComponent<PointPlayer>().points[8].GetComponent<InputField>().text;
                 }
             }
+            score = score + "*";
             PlayerPrefs.SetString("ScoreLogs", PlayerPrefs.GetString("ScoreLogs") + score);
             print(PlayerPrefs.GetString("ScoreLogs"));
-        }        
+        }
+        display.UpdateScores();
     }
 }

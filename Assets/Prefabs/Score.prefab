@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224304525882022108}
   - component: {fileID: 114165695460915836}
+  - component: {fileID: 114324444917343028}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -149,6 +150,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: X
+--- !u!114 &114324444917343028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1329417760983980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d1d8be3689294cbb1c242cba4766e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114383358686792444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,7 +226,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114937169083814126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114324444917343028}
+        m_MethodName: ShowRegistry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114841081892711056

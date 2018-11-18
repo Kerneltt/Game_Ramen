@@ -86,7 +86,7 @@ public class ResourceManager : MonoBehaviour
                 load.onClick.AddListener(delegate {IdentifyButton(x); });
                 load.onClick.AddListener(delegate {LoadResource(); });
 
-                delete.onClick.AddListener(delegate {DestroyTemplate(saveFiles[x-1]);});
+                delete.onClick.AddListener(delegate {DestroyTemplate(saveFiles[x]);});
             }
         }
     }

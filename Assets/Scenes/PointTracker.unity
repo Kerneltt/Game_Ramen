@@ -1519,7 +1519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &99416799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6521,6 +6521,7 @@ MonoBehaviour:
   - {fileID: 766009021}
   - {fileID: 99622379}
   name: {fileID: 779219157}
+  display: {fileID: 1151831418}
 --- !u!1 &482896035
 GameObject:
   m_ObjectHideFlags: 0
@@ -14135,6 +14136,15 @@ MonoBehaviour:
   ScoreParent: {fileID: 1996058754}
   scorePrefab: {fileID: 1329417760983980, guid: ef1dc290e4798724ba7927adbff857dd,
     type: 2}
+  txtGame: {fileID: 450753340}
+  txtDate: {fileID: 2092863054}
+  txtP1: {fileID: 1241833530}
+  txtP2: {fileID: 1351439270}
+  txtP3: {fileID: 674875288}
+  txtP4: {fileID: 102105937}
+  txtP5: {fileID: 780567225}
+  displayScores: {fileID: 748435852}
+  buttonsPanel: {fileID: 99416799}
 --- !u!1 &1159439017
 GameObject:
   m_ObjectHideFlags: 0
@@ -14360,7 +14370,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1172015540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 748435851}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1172015540
@@ -24888,8 +24909,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 0, y: -235.18}
+  m_AnchoredPosition: {x: 0, y: -21.880001}
+  m_SizeDelta: {x: 0, y: -269.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996058756
 MonoBehaviour:
@@ -24907,7 +24928,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 3
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
