@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 54830055313970238}
   m_Layer: 0
   m_Name: X
-  m_TagString: Untagged
+  m_TagString: number
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 54121729973844382}
   m_Layer: 0
   m_Name: O
-  m_TagString: Untagged
+  m_TagString: number
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 10
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!54 &54830055313970238
 Rigidbody:
@@ -245,7 +245,7 @@ BoxCollider:
   m_GameObject: {fileID: 1167250309504284}
   m_Material: {fileID: 13400000, guid: 93337253144644fa689c6581e8e289b1, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9846794, y: 0.9837924, z: 0.038237274}
   m_Center: {x: 0, y: -0.000000014901165, z: 0.019118637}
