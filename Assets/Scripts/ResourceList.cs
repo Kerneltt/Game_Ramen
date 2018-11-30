@@ -79,6 +79,10 @@ public class ResourceList : MonoBehaviour
     {
         string name = inpName.GetComponent<InputField>().text.ToString();
         GameObject newresource;
+        if (int.Parse(maxTresh.GetComponent<InputField>().text.ToString()) == 0)
+        {
+            istreshold.isOn = false;
+        }
         if (istreshold.isOn)
         {
             newresource = Instantiate(treshold);            

@@ -21,6 +21,8 @@ public class ResourceManager : MonoBehaviour
     GameObject loadEraseButton;
     [SerializeField]
     GameObject loadContentPanel;
+    [SerializeField]
+    GameObject savePanel;
     private string saveFileName; 
     public int contadorSaves;
     public int playerID;
@@ -95,7 +97,7 @@ public class ResourceManager : MonoBehaviour
     public void Newplayer()
     {
         GameObject newplayer=null;
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 10; i++)
 
         {
             if (avaiablePlayers[i] > 0)
@@ -106,6 +108,7 @@ public class ResourceManager : MonoBehaviour
                 string name = inputField.GetComponent<InputField>().text.ToString();
                 newplayer.GetComponentInChildren<Text>().text = name;
                 rl.SetID(i);
+                newplayer.GetComponent<Toggle>().group = newplayer.GetComponentInParent<ToggleGroup>();
 
                 //Check for any other player, if there is, copy their resource setting
                 // If there isnt, just create the new player as it its, without a resource yet. 
@@ -122,6 +125,10 @@ public class ResourceManager : MonoBehaviour
                 avaiablePlayers[i] = 0;
                 break;
             }
+        }
+        if (avaiablePlayers[9]==0)
+        {
+            GameObject.Find("NewPlayer").SetActive(false);
         }
 
     }
