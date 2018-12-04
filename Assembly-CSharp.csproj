@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Detector.cs" />
     <Compile Include="Assets\Scripts\Dice.cs" />
+    <Compile Include="Assets\Scripts\DiceRoller2\DiceManager2.cs" />
     <Compile Include="Assets\Scripts\DiceTester.cs" />
     <Compile Include="Assets\Scripts\DiceTools.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

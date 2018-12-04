@@ -77,6 +77,10 @@ public class ResourceList : MonoBehaviour
 
     public void CreateResoruce()
     {
+        if (inpName.GetComponent<InputField>().text.ToString()=="")
+        {
+            return;
+        }
         string name = inpName.GetComponent<InputField>().text.ToString();
         GameObject newresource;
         if (int.Parse(maxTresh.GetComponent<InputField>().text.ToString()) == 0)

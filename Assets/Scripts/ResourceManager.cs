@@ -125,6 +125,10 @@ public class ResourceManager : MonoBehaviour
     // Get player avaible, if able
     public void Newplayer()
     {
+        if (inputField.GetComponent<InputField>().text.ToString()=="")
+        {
+            return;
+        }
         GameObject newplayer=null;
         for (int i = 0; i < 10; i++)
 
@@ -177,7 +181,10 @@ public class ResourceManager : MonoBehaviour
 
     public void SaveResourceInfo()
     {
-
+        if (resourceName.GetComponent<InputField>().text == "")
+        {
+            return;
+        }
         string resourceInfo="";            
         string resourcesFiles = PlayerPrefs.GetString("ResourcesFile");
 

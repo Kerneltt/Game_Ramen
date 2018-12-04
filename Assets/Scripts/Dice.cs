@@ -16,8 +16,7 @@ public class Dice : MonoBehaviour
 
     public Transform[] myNumbers;
 
-    public Text numberDysplay;
-
+    public Text numberDysplay;    
 	void Start () {
         myRG = GetComponent<Rigidbody>();
 
@@ -36,7 +35,7 @@ public class Dice : MonoBehaviour
 
     private void Update()
     {
-        if(rolling)
+        if (rolling)
         {
             if(myRG.velocity.sqrMagnitude < 0.01f && myRG.angularVelocity.sqrMagnitude < 0.01f)
             {
@@ -50,9 +49,10 @@ public class Dice : MonoBehaviour
     }
 
     public void RollDice(){
-        if (locked)
+        if (locked || rolling)
             return;
-
+        print("rolling");
+        rolling = true;
         Invoke("StartDetecting", 2f);
 
         float randomNum = Random.Range(2f, 10f);
@@ -63,7 +63,7 @@ public class Dice : MonoBehaviour
 
         myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
 
-        numberDysplay.text = "";
+        //numberDysplay.text = "";
     }
 
     void CheckDiceNumber() 
@@ -81,7 +81,7 @@ public class Dice : MonoBehaviour
             }
         }
         Debug.Log("answer: " + numberTop.name);
-        numberDysplay.text = numberTop.name;
+        //numberDysplay.text = numberTop.name;
     }
 
     void StartDetecting()
@@ -92,11 +92,13 @@ public class Dice : MonoBehaviour
     public void LockDice()
     {
         locked = true;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void UnlockDice()
     {
         locked = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
     public void RemoveDice()
