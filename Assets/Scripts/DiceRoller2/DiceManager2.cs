@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DiceManager2 : MonoBehaviour {
     Dice[] dices;
@@ -9,14 +10,39 @@ public class DiceManager2 : MonoBehaviour {
     GameObject[] die;
     [SerializeField]
     LayerMask mask;
+    [SerializeField]
+    GameObject collorpickerIMG;
+    [SerializeField]
+    Texture2D collors;
+    [SerializeField]
+    GameObject collorpickerButton;
     // Use this for initialization
     void Start () {
 		
 	}
 
+    public void Setcollor()
+    {
+        RectTransform rt = collorpickerIMG.GetComponent<RectTransform>();        
+        float width = rt.rect.width;
+        float height = rt.rect.height;
+        Touch touch = Input.GetTouch(0);        
+        print("X: " + (collorpickerIMG.transform.InverseTransformPoint(touch.position).x));
+        print("Y:" +  (collorpickerIMG.transform.InverseTransformPoint(touch.position).y));
+        print("X trans: " + ((((collorpickerIMG.transform.InverseTransformPoint(touch.position).x +width/2)* collors.width) + (width / 2)) / width));
+        print("Y trans:" + (((((collorpickerIMG.transform.InverseTransformPoint(touch.position).y +height/2)* collors.height) + (height / 2)) / height)));
+        int x = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).x + width / 2) * collors.width) + (width / 2)) / width);
+        int y = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).y + height / 2) * collors.height) + (height / 2)) / height);
+        collorpickerButton.GetComponent<Image>().color = collors.GetPixel(x, y);
+        //print(collors.GetPixel(x, y));
+
+
+    }
+
     public void SpawnDice(int dice)
     {
-        Instantiate(die[dice]);
+        GameObject newdice=  Instantiate(die[dice]);
+        newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
     }
 	// Update is called once per frame
 	void Update () {
