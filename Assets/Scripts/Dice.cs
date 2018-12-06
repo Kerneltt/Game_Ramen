@@ -16,7 +16,13 @@ public class Dice : MonoBehaviour
 
     public Transform[] myNumbers;
 
-    public Text numberDysplay;    
+    public Text numberDysplay;
+
+    bool killable = false;
+
+    [SerializeField]
+    GameObject imageLock;
+
 	void Start () {
         myRG = GetComponent<Rigidbody>();
 
@@ -32,6 +38,10 @@ public class Dice : MonoBehaviour
 
         diceTester = FindObjectOfType<DiceTester>();
 	}
+    public void Setkillable(bool kill)
+    {
+        killable = kill;
+    }
 
     private void Update()
     {
@@ -93,12 +103,14 @@ public class Dice : MonoBehaviour
     {
         locked = true;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        //imageLock.SetActive(true);
     }
 
     public void UnlockDice()
     {
         locked = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        //imageLock.SetActive(false);
     }
 
     public void RemoveDice()
@@ -106,5 +118,12 @@ public class Dice : MonoBehaviour
         diceTester.RemoveDice(transform.root.gameObject);
         diceTester.ReorderAll();
         Destroy(transform.root.gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag== "Killwall" && killable)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -16,6 +16,9 @@ public class DiceManager2 : MonoBehaviour {
     Texture2D collors;
     [SerializeField]
     GameObject collorpickerButton;
+    GameObject sellectedDice;
+    public Vector2 startPos;
+    public Vector2 direction;
     // Use this for initialization
     void Start () {
 		
@@ -41,8 +44,11 @@ public class DiceManager2 : MonoBehaviour {
 
     public void SpawnDice(int dice)
     {
-        GameObject newdice=  Instantiate(die[dice]);
-        newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+        if (GameObject.FindObjectsOfType<Dice>().Length<20)
+        {
+            GameObject newdice = Instantiate(die[dice]);
+            newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+        }        
     }
 	// Update is called once per frame
 	void Update () {
@@ -62,26 +68,50 @@ public class DiceManager2 : MonoBehaviour {
                // diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
             }
         }
-
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+        if (Input.touchCount>0)
         {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit raycastHit;
-            if (Physics.Raycast(raycast, out raycastHit,Mathf.Infinity,mask))
+            if ((Input.GetTouch(0).phase == TouchPhase.Began))
             {
-                if (raycastHit.collider.tag=="Dice")
+                Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit raycastHit;
+                if (Physics.Raycast(raycast, out raycastHit, Mathf.Infinity, mask))
                 {
-                    Debug.Log("Lock");
-                    if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
+                    if (raycastHit.collider.tag == "Dice")
                     {
-                        raycastHit.collider.gameObject.GetComponent<Dice>().UnlockDice();
-                    }
-                    else
-                    {
-                        raycastHit.collider.gameObject.GetComponent<Dice>().LockDice();
+                        startPos = Input.GetTouch(0).position;
+                        if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
+                        {
+                            raycastHit.collider.gameObject.GetComponent<Dice>().UnlockDice();
+                        }
+                        else
+                        {
+                            raycastHit.collider.gameObject.GetComponent<Dice>().LockDice();
+                        }
+                        sellectedDice = raycastHit.collider.gameObject;
                     }
                 }
             }
+
+            if (Input.GetTouch(0).phase==TouchPhase.Moved && sellectedDice!=null)
+            {
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
+                {
+                    sellectedDice.GetComponent<Dice>().Setkillable(true);
+                    sellectedDice.GetComponent<Dice>().UnlockDice();
+                    sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)));
+                }                
+            }
+            if (Input.GetTouch(0).phase==TouchPhase.Ended && sellectedDice!=null)
+            {                
+                sellectedDice.GetComponent<Dice>().Setkillable(false);
+                if (sellectedDice.GetComponent<Dice>().locked==false)
+                {
+                    sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }                
+                sellectedDice = null;
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.R))
