@@ -19,9 +19,15 @@ public class DiceManager2 : MonoBehaviour {
     GameObject sellectedDice;
     public Vector2 startPos;
     public Vector2 direction;
+    bool doubletapTimer=false;
+    int tapcounter=0;
+    [SerializeField]
+    List<GameObject> trays;
+    [SerializeField]
+    GameObject currentTray;
     // Use this for initialization
     void Start () {
-		
+        currentTray = trays[0];
 	}
 
     public void Setcollor()
@@ -44,10 +50,12 @@ public class DiceManager2 : MonoBehaviour {
 
     public void SpawnDice(int dice)
     {
-        if (GameObject.FindObjectsOfType<Dice>().Length<20)
+        if (currentTray.GetComponentsInChildren<Dice>().Length<20)
         {
+            print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
             newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+            newdice.transform.SetParent(currentTray.transform);
         }        
     }
 	// Update is called once per frame
@@ -57,13 +65,25 @@ public class DiceManager2 : MonoBehaviour {
         dir.x = -Input.acceleration.x;
         dir.z = Input.acceleration.z;
         dir.y = Input.acceleration.y;
+        if (tapcounter>0)
+        {
+            tapcounter--;
+            if (tapcounter==0 && doubletapTimer==true)
+            {
+                doubletapTimer = false;
+                foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
+                {
+                    dice.UnlockDice();
+                }
+                print("Unlockall");
+            }
+        }
         if (dir.sqrMagnitude > 5)
         {
-            dices = FindObjectsOfType<Dice>();
+            dices =currentTray.GetComponentsInChildren<Dice>();
             dir.Normalize();
             foreach (Dice diceToRoll in dices)
-            {
-                
+            {                
                 diceToRoll.RollDice();
                // diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
             }
@@ -74,9 +94,9 @@ public class DiceManager2 : MonoBehaviour {
             {
                 Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit raycastHit;
-                if (Physics.Raycast(raycast, out raycastHit, Mathf.Infinity, mask))
+                if (Physics.Raycast(raycast, out raycastHit, 20f, mask))
                 {
-                    if (raycastHit.collider.tag == "Dice")
+                    if (raycastHit.collider.tag == "Dice" && raycastHit.collider.gameObject.GetComponent<Dice>()!=null)
                     {
                         startPos = Input.GetTouch(0).position;
                         if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
@@ -88,6 +108,30 @@ public class DiceManager2 : MonoBehaviour {
                             raycastHit.collider.gameObject.GetComponent<Dice>().LockDice();
                         }
                         sellectedDice = raycastHit.collider.gameObject;
+                    }
+                    else
+                    {
+                        if (doubletapTimer == true)
+                        {
+                            dices = GetComponentsInChildren<Dice>();                            
+                            foreach (Dice diceToRoll in dices)
+                            {
+                                diceToRoll.RollDice();
+                                // diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+                            }
+                            doubletapTimer = false;
+                            tapcounter = 0;
+                            print("TapRoll");
+                        }
+                        else
+                        if (doubletapTimer==false)
+                        {
+                            doubletapTimer = true;
+                            tapcounter = 50;
+                            print("TapOnce");
+                        }
+                                      
+                        startPos = Input.GetTouch(0).position;
                     }
                 }
             }
@@ -102,6 +146,16 @@ public class DiceManager2 : MonoBehaviour {
                     sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)));
                 }                
             }
+
+            if (Input.GetTouch(0).phase == TouchPhase.Moved && sellectedDice == null)
+            {
+                //prender bandera swipe
+            }
+            if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
+            {
+                //swipe
+            }
+
             if (Input.GetTouch(0).phase==TouchPhase.Ended && sellectedDice!=null)
             {                
                 sellectedDice.GetComponent<Dice>().Setkillable(false);
@@ -116,7 +170,7 @@ public class DiceManager2 : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            dices = FindObjectsOfType<Dice>();
+            dices = currentTray.GetComponentsInChildren<Dice>();
             print("rolling");
             foreach (Dice diceToRoll in dices)
             {
