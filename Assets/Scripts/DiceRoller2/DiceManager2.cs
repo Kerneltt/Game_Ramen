@@ -21,13 +21,20 @@ public class DiceManager2 : MonoBehaviour {
     public Vector2 direction;
     bool doubletapTimer=false;
     int tapcounter=0;
+    int trayindex =0; 
+    float initCamerax = 0;
+    float initCameray = 18.27f;
+    float initCameraz = -7.48f; 
     [SerializeField]
     List<GameObject> trays;
     [SerializeField]
     GameObject currentTray;
+    [SerializeField]
+    GameObject trayfab;
     // Use this for initialization
     void Start () {
         currentTray = trays[0];
+        trayindex = 0; 
 	}
 
     public void Setcollor()
@@ -150,10 +157,80 @@ public class DiceManager2 : MonoBehaviour {
             if (Input.GetTouch(0).phase == TouchPhase.Moved && sellectedDice == null)
             {
                 //prender bandera swipe
+                //Guardar posicion actual por inicio de swipe
+                startPos = Input.GetTouch(0).position;
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
             {
                 //swipe
+                //Revisar, con el if anterior, si el swipe fue suficientemente fuerte para que sea creado
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
+                {
+                    //revisar la direccion
+                    //Derecha: --> 
+                    if(startPos.x < Input.GetTouch(0).position.x){
+                        //Ver en la lista si existen boards anteriores al actual.
+                        if(trayindex > 0){
+                            //Si existe
+                            //Cambiar el Currenttray al anterior
+                            trayindex = trayindex - 1; 
+                            currentTray = trays[trayindex];
+
+                            //mover la camara
+                            initCamerax = initCamerax - 720;
+                            Camera.main.transform.position = new Vector3(initCamerax, initCameray, initCameraz);
+
+                            //Revisar si el tray actual no tenia dados
+                            if(trays[trayindex + 1 ].transform.childCount < 1)
+                            {
+                                //Si tenia dados, no pasa nada
+                                //Si no tenia dados, eliminar el contenido de la posicion y crear nuevo arreglo sin ese tray
+                                trays.Remove(trays[trayindex + 1]);
+                            }
+                            
+                        }
+                        //De no haber
+                            //, quedarse en el mismo, 
+                    }
+                    else{
+                        //Izquierda: <--
+                        //Revisar si existe tray adelante de la lista
+                        if(trayindex < 19){
+                            if(trays.Count == trayindex + 1){
+                                //No existe tray adelante
+                                    //Crear un nuevo tray
+                                    GameObject newBoard =Instantiate(trayfab);
+                                    int newx = (trayindex + 1) * 720 ;
+
+                                    newBoard.transform.position = new Vector3(newx, 0, 0);   
+                            
+                                    //Agrandar al lista con el nuevo tray
+                                    trays.Add(newBoard); 
+                                    
+                                    //Cambiar current tray
+                                    trayindex = trayindex + 1;
+                                    currentTray = trays[trayindex];
+                                    
+                                    //Mover la camara hacia el nuevo tray
+                                    initCamerax = initCamerax + 720;
+                                    Camera.main.transform.position = new Vector3(initCamerax, initCameray, initCameraz);
+                                    
+                            }
+                            else if(trays.Count > trayindex + 1){
+                                //Existe tray adelante
+                                    //Mover la camara
+                                    initCamerax = initCamerax + 720;
+                                    Camera.main.transform.position = new Vector3(initCamerax, initCameray, initCameraz);
+                                   
+                                    //Cambiar current tray
+                                    trayindex = trayindex + 1;
+                                    currentTray = trays[trayindex];                                    
+
+                            }
+                            
+                        }
+                    }
+                }
             }
 
             if (Input.GetTouch(0).phase==TouchPhase.Ended && sellectedDice!=null)
