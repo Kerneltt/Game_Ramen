@@ -113,7 +113,7 @@ public class DiceManager2 : MonoBehaviour {
                     {
                         if (doubletapTimer == true)
                         {
-                            dices = GetComponentsInChildren<Dice>();                            
+                            dices = currentTray.GetComponentsInChildren<Dice>();                            
                             foreach (Dice diceToRoll in dices)
                             {
                                 diceToRoll.RollDice();
