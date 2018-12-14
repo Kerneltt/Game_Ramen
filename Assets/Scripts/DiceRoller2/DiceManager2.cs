@@ -24,13 +24,21 @@ public class DiceManager2 : MonoBehaviour {
     int trayindex =0; 
     float initCamerax = 0;
     float initCameray = 18.27f;
-    float initCameraz = -7.48f; 
+    float initCameraz = -0.64f; 
     [SerializeField]
     List<GameObject> trays;
     [SerializeField]
     GameObject currentTray;
     [SerializeField]
     GameObject trayfab;
+
+    //fling
+    Vector2 startPosF, endPosf, directionf;
+    float touchTimeStart, TouchTimeFinish, timeInterval;
+    [SerializeField]
+    float throwzx = 50;
+    Rigidbody rb;
+
     // Use this for initialization
     void Start () {
         currentTray = trays[0];
@@ -50,7 +58,7 @@ public class DiceManager2 : MonoBehaviour {
         int x = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).x + width / 2) * collors.width) + (width / 2)) / width);
         int y = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).y + height / 2) * collors.height) + (height / 2)) / height);
         collorpickerButton.GetComponent<Image>().color = collors.GetPixel(x, y);
-        //print(collors.GetPixel(x, y));
+        
 
 
     }
@@ -63,6 +71,7 @@ public class DiceManager2 : MonoBehaviour {
             GameObject newdice = Instantiate(die[dice]);
             newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             newdice.transform.SetParent(currentTray.transform);
+            newdice.transform.localPosition = new Vector3(0, 5, 0);
         }        
     }
 	// Update is called once per frame
@@ -115,6 +124,9 @@ public class DiceManager2 : MonoBehaviour {
                             raycastHit.collider.gameObject.GetComponent<Dice>().LockDice();
                         }
                         sellectedDice = raycastHit.collider.gameObject;
+                        touchTimeStart = Time.time;
+                        startPosF = Input.GetTouch(0).position;
+                        rb = sellectedDice.GetComponent<Rigidbody>();
                     }
                     else
                     {
@@ -239,7 +251,13 @@ public class DiceManager2 : MonoBehaviour {
                 if (sellectedDice.GetComponent<Dice>().locked==false)
                 {
                     sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                }                
+                }
+                TouchTimeFinish = Time.time;
+                timeInterval = TouchTimeFinish - touchTimeStart;
+                endPosf = Input.GetTouch(0).position;
+                directionf = endPosf - startPosF;
+                rb.AddForce(directionf.x*throwzx/timeInterval,0,directionf.y*throwzx/timeInterval);
+
                 sellectedDice = null;
             }
 
