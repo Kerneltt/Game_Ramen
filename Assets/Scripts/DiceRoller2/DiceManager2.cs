@@ -23,8 +23,8 @@ public class DiceManager2 : MonoBehaviour {
     int tapcounter=0;
     int trayindex =0; 
     float initCamerax = 0;
-    float initCameray = 18.27f;
-    float initCameraz = -0.64f; 
+    float initCameray = 15f;
+    float initCameraz = -7.5f; 
     [SerializeField]
     List<GameObject> trays;
     [SerializeField]

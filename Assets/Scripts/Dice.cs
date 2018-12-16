@@ -53,7 +53,7 @@ public class Dice : MonoBehaviour
                 myRG.velocity = Vector3.zero;
                 myRG.angularVelocity = Vector3.zero;
                 Debug.Log("checking number");
-                CheckDiceNumber();
+              //  CheckDiceNumber();
             }            
         }
     }
