@@ -197,7 +197,9 @@ public class DiceManager2 : MonoBehaviour {
                             {
                                 //Si tenia dados, no pasa nada
                                 //Si no tenia dados, eliminar el contenido de la posicion y crear nuevo arreglo sin ese tray
+                                Destroy(trays[trayindex + 1]);
                                 trays.Remove(trays[trayindex + 1]);
+                                
                             }
                             
                         }
