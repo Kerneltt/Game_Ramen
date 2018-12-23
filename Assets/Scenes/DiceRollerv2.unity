@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667653, g: 0.48427063, b: 0.56451964, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,6 +152,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 23931042042133696, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23859437909771840, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23995720426228892, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23594289725346518, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23421829380689820, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20419a1096eb46f49a0092f34e7062bf, type: 2}
   m_IsPrefabAsset: 0
@@ -233,6 +258,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1221626791}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: CancelTap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -346,13 +382,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 409284092}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 31.6, z: -7.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &456805275
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,8 +436,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 62
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 11.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -423,13 +459,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456805275}
-  m_LocalRotation: {x: 0.5699968, y: 0, z: 0, w: 0.8216469}
-  m_LocalPosition: {x: 0, y: 15, z: -7.5}
+  m_LocalRotation: {x: 0.5877739, y: -0, z: -0, w: 0.8090253}
+  m_LocalPosition: {x: 0, y: 20.7, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 69.5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.998, y: 0, z: 0}
 --- !u!1 &508478555
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +846,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1453620842}
+          m_MethodName: CancelTap
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -972,6 +1019,17 @@ MonoBehaviour:
           m_StringArgument: Untagged
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: CancelTap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1329133874
@@ -1037,13 +1095,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   die:
   - {fileID: 1320843658161444, guid: 6259e7e560dceb241a7b6f20ab9612fe, type: 2}
-  - {fileID: 1241433144649612, guid: f31848a8c5b91064fa74042e8c4d7d5e, type: 2}
-  - {fileID: 1445288607056218, guid: e7371d18ad977344b9dcd4d70d091ff1, type: 2}
-  - {fileID: 1437825179449822, guid: b2ad88db70a652641aef4ade151b225c, type: 2}
-  - {fileID: 1484049401195990, guid: de6e8bf6e97dd8441a86420efca0b420, type: 2}
-  - {fileID: 1421680099193144, guid: 651e7a3493297664b9354b4f824d9e79, type: 2}
-  - {fileID: 1757556554641246, guid: eb36f725ca6bb8246b4fcf8ff519ae0b, type: 2}
-  - {fileID: 1315844365993544, guid: 76c532d6a50995c418ab60aec5381efb, type: 2}
+  - {fileID: 1515581173618442, guid: b410d583f3f28804fae707bedf0d955d, type: 2}
+  - {fileID: 1382893643756252, guid: 6f2f71958767bf04497104aa4ed6d963, type: 2}
+  - {fileID: 1340961210858300, guid: f521d97cf2b4db548bc90a17bd74745b, type: 2}
+  - {fileID: 1659964749939474, guid: 1ff88f0850500574596eab94e887072b, type: 2}
+  - {fileID: 1662798089029302, guid: 6c03203032d2be14b8c4b9f95f4d3cf3, type: 2}
+  - {fileID: 1987458997762462, guid: e656f3032b0d1524e909606ce6b4a382, type: 2}
+  - {fileID: 1193880560521688, guid: 5fbb18c78bd9ca6458e592890df1bdfb, type: 2}
   mask:
     serializedVersion: 2
     m_Bits: 512
@@ -1056,7 +1114,7 @@ MonoBehaviour:
   - {fileID: 405519097}
   currentTray: {fileID: 0}
   trayfab: {fileID: 1914828165706020, guid: 20419a1096eb46f49a0092f34e7062bf, type: 2}
-  throwzx: 1
+  throwzx: 3
 --- !u!4 &1453620843
 Transform:
   m_ObjectHideFlags: 0
@@ -1263,6 +1321,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Killwall
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: CancelTap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

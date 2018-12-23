@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\DiceRoller2\DiceManager2.cs" />
     <Compile Include="Assets\Scripts\DiceTester.cs" />
     <Compile Include="Assets\Scripts\DiceTools.cs" />
+    <Compile Include="Assets\Scripts\followpos.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameSceneManager.cs" />
     <Compile Include="Assets\Scripts\MultiplierManager.cs" />

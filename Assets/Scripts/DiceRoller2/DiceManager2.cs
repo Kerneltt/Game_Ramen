@@ -23,8 +23,8 @@ public class DiceManager2 : MonoBehaviour {
     int tapcounter=0;
     int trayindex =0; 
     float initCamerax = 0;
-    float initCameray = 15f;
-    float initCameraz = -7.5f; 
+    float initCameray = 20.7f;
+    float initCameraz = -3.7f; 
     [SerializeField]
     List<GameObject> trays;
     [SerializeField]
@@ -62,14 +62,19 @@ public class DiceManager2 : MonoBehaviour {
 
 
     }
-
+    public void CancelTap()
+    {
+        doubletapTimer = false;
+        tapcounter = 0;
+    }
     public void SpawnDice(int dice)
     {
+        CancelTap();
         if (currentTray.GetComponentsInChildren<Dice>().Length<20)
         {
             print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
-            newdice.GetComponent<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+            newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             newdice.transform.SetParent(currentTray.transform);
             newdice.transform.localPosition = new Vector3(0, 5, 0);
         }        
@@ -81,6 +86,8 @@ public class DiceManager2 : MonoBehaviour {
         dir.x = -Input.acceleration.x;
         dir.z = Input.acceleration.z;
         dir.y = Input.acceleration.y;
+        //print(dir);
+        //Unlock all dice
         if (tapcounter>0)
         {
             tapcounter--;
@@ -94,6 +101,7 @@ public class DiceManager2 : MonoBehaviour {
                 print("Unlockall");
             }
         }
+        //Troww all dice
         if (dir.sqrMagnitude > 5)
         {
             dices =currentTray.GetComponentsInChildren<Dice>();
@@ -104,16 +112,31 @@ public class DiceManager2 : MonoBehaviour {
                // diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
             }
         }
-        if (Input.touchCount>0)
+
+        //tilt dice on tray
+        if (dir.x>1)
         {
+            /*
+            foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
+            {
+                dice.gameObject.GetComponent<Rigidbody>().AddForce
+            }
+            */
+        }
+        
+        if (Input.touchCount>0)
+        {            
             if ((Input.GetTouch(0).phase == TouchPhase.Began))
             {
+                //detect dice touch or not
                 Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit raycastHit;
                 if (Physics.Raycast(raycast, out raycastHit, 20f, mask))
                 {
+                    //dice detected
                     if (raycastHit.collider.tag == "Dice" && raycastHit.collider.gameObject.GetComponent<Dice>()!=null)
                     {
+                        //lock/unlock dice
                         startPos = Input.GetTouch(0).position;
                         if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
                         {
@@ -123,13 +146,16 @@ public class DiceManager2 : MonoBehaviour {
                         {
                             raycastHit.collider.gameObject.GetComponent<Dice>().LockDice();
                         }
+                        //show interest in dice
                         sellectedDice = raycastHit.collider.gameObject;
                         touchTimeStart = Time.time;
                         startPosF = Input.GetTouch(0).position;
                         rb = sellectedDice.GetComponent<Rigidbody>();
                     }
+                    //dice undetected
                     else
                     {
+                        //roll all dice on double tap
                         if (doubletapTimer == true)
                         {
                             dices = currentTray.GetComponentsInChildren<Dice>();                            
@@ -142,6 +168,7 @@ public class DiceManager2 : MonoBehaviour {
                             tapcounter = 0;
                             print("TapRoll");
                         }
+                        //detect first tap
                         else
                         if (doubletapTimer==false)
                         {
@@ -154,7 +181,7 @@ public class DiceManager2 : MonoBehaviour {
                     }
                 }
             }
-
+            //move selected dice
             if (Input.GetTouch(0).phase==TouchPhase.Moved && sellectedDice!=null)
             {
                 if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
@@ -165,13 +192,14 @@ public class DiceManager2 : MonoBehaviour {
                     sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)));
                 }                
             }
-
+            //starting position of finger
             if (Input.GetTouch(0).phase == TouchPhase.Moved && sellectedDice == null)
             {
                 //prender bandera swipe
                 //Guardar posicion actual por inicio de swipe
                 startPos = Input.GetTouch(0).position;
             }
+            //swipe ended
             if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
             {
                 //swipe
@@ -246,7 +274,7 @@ public class DiceManager2 : MonoBehaviour {
                     }
                 }
             }
-
+            //let the sellected dice go
             if (Input.GetTouch(0).phase==TouchPhase.Ended && sellectedDice!=null)
             {                
                 sellectedDice.GetComponent<Dice>().Setkillable(false);

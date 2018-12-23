@@ -102,15 +102,16 @@ public class Dice : MonoBehaviour
     public void LockDice()
     {
         locked = true;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        //imageLock.SetActive(true);
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;        
+        imageLock.SetActive(true);
+        GetComponentInParent<followpos>().Movepos();
     }
 
     public void UnlockDice()
     {
         locked = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        //imageLock.SetActive(false);
+        imageLock.SetActive(false);
     }
 
     public void RemoveDice()
