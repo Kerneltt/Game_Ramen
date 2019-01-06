@@ -1164,7 +1164,7 @@ MonoBehaviour:
   - {fileID: 405519097}
   currentTray: {fileID: 0}
   trayfab: {fileID: 1914828165706020, guid: 20419a1096eb46f49a0092f34e7062bf, type: 3}
-  throwzx: 3
+  throwzx: 2
 --- !u!4 &1453620843
 Transform:
   m_ObjectHideFlags: 0

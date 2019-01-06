@@ -21,22 +21,15 @@ public class DiceManager2 : MonoBehaviour {
     public Vector2 direction;
     bool doubletapTimer=false;
     int tapcounter=0;
-    int trayindex =0; 
-<<<<<<< HEAD
-    float initCamerax = 0;
-    float initCameray = 20.7f;
-    float initCameraz = 0f; 
-=======
->>>>>>> 580cc71b2c7db1a2e9c50d5d5e11bb00ac9137c9
+    int trayindex =0;
+    Vector3 cameraDirection;
+
     [SerializeField]
     List<GameObject> trays;
     [SerializeField]
     GameObject currentTray;
     [SerializeField]
     GameObject trayfab;
-
-    [SerializeField]
-    GameObject pruebasTab; 
     bool boolDirection;  
 
     //fling
@@ -48,16 +41,16 @@ public class DiceManager2 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        for(int i = 1; i < 20; i++){
+        for (int i = 1; i < 20; i++){
             GameObject newBoard =Instantiate(trayfab);
+            float newx = i * 17f;
+            newBoard.transform.position = new Vector3(newx, 0, 0);
             trays.Add(newBoard); 
-
-            float newx = i * 17.26f ;
-            newBoard.transform.position = new Vector3(newx, 0, 0);  
         }
 
         currentTray = trays[0];
-        trayindex = 0; 
+        trayindex = 0;
+        cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
 
     public void Setcollor()
@@ -94,28 +87,31 @@ public class DiceManager2 : MonoBehaviour {
             newdice.transform.localPosition = new Vector3(0, 5, 0);
         }        
     }
-
+/*
     public void FixedUpdate(){        
         float smoothSpeed = 0.125f; 
         Vector3 offset; 
         if(boolDirection){
-            offset = new Vector3(17.26f, 0, 0); 
+            offset = new Vector3(17f, 0, 0); 
         }
         else{
-            offset = new Vector3(-17.26f, 0, 0); 
+            offset = new Vector3(-17f, 0, 0); 
         } 
 
-        Vector3 desiredPosition = currentTray.transform.position + offset; 
+        Vector3 desiredPosition = currentTray.transform.position + offset;
+        print(desiredPosition);
         // print(currentTray.transform.position.x);
         // print(currentTray.transform.position.y);
         // print(currentTray.transform.position.z); 
-        Vector3 smoothedPosition = Vector3.Lerp(currentTray.transform.position, desiredPosition, smoothSpeed); 
-        Camera.main.transform.position = smoothedPosition; 
-        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 20.7f, -4.8f); 
-    }
 
+        Camera.main.transform.Translate(currentTray.transform.position * Time.deltaTime);
+        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 20.7f, 0); 
+    }
+   */
     // Update is called once per frame
     void Update () {
+
+        Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraDirection,  50 * Time.deltaTime);
 
         Vector3 dir  = Vector3.zero;
         dir.x = -Input.acceleration.x;
@@ -243,8 +239,7 @@ public class DiceManager2 : MonoBehaviour {
                 if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
                 {
                     //revisar la direccion
-                    //Derecha: -->
-                    boolDirection = true;  
+                    //Derecha: --> 
                     if(startPos.x < Input.GetTouch(0).position.x){
                         //Ver en la lista si existen boards anteriores al actual.
                         if(trayindex > 0){
@@ -252,10 +247,12 @@ public class DiceManager2 : MonoBehaviour {
                             //Cambiar el Currenttray al anterior
                             trayindex = trayindex - 1; 
                             currentTray = trays[trayindex];
+                            cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+
 
                             //Revisar si el tray actual no tenia dados
                             //GameObject.GetComponentsInChilden<Dice>()
-                            if(trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
+                            if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
                             {
                                 
                                 int borradoIndex = trayindex + 1; 
@@ -267,8 +264,7 @@ public class DiceManager2 : MonoBehaviour {
                                         trays[ant] = trays[i]; 
                                     }
                                 }
-                                
-                                pruebasTab.SetActive(true); 
+
                             }
                             
                         }
@@ -278,10 +274,10 @@ public class DiceManager2 : MonoBehaviour {
                     else{
                         //Izquierda: <--
                         //Revisar si existe tray adelante de la lista
-                        boolDirection = false; 
                         if(trayindex < 19){
                             trayindex = trayindex + 1;
-                            currentTray = trays[trayindex];                             
+                            currentTray = trays[trayindex];
+                            cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
                         }
                     }
                 }
