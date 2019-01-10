@@ -236,7 +236,7 @@ public class DiceManager2 : MonoBehaviour {
             {
                 //swipe
                 //Revisar, con el if anterior, si el swipe fue suficientemente fuerte para que sea creado
-                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
                 {
                     //revisar la direccion
                     //Derecha: --> 
