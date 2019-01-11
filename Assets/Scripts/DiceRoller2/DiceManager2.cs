@@ -26,6 +26,7 @@ public class DiceManager2 : MonoBehaviour {
 
     [SerializeField]
     List<GameObject> trays;
+    List<Vector3> locations = new List<Vector3>(); 
     [SerializeField]
     GameObject currentTray;
     [SerializeField]
@@ -41,11 +42,10 @@ public class DiceManager2 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        for (int i = 1; i < 20; i++){
-            GameObject newBoard =Instantiate(trayfab);
+        for (int i = 0; i < 20; i++){
             float newx = i * 17f;
-            newBoard.transform.position = new Vector3(newx, 0, 0);
-            trays.Add(newBoard); 
+            Vector3 v = new Vector3(newx, 0, 0);
+            locations.Add(v);  
         }
 
         currentTray = trays[0];
@@ -74,6 +74,14 @@ public class DiceManager2 : MonoBehaviour {
     {
         doubletapTimer = false;
         tapcounter = 0;
+    }
+    public void UpdateLocations(int startIndex){
+        int end = trays.Count;
+        for (int i = startIndex; i < end; i++)
+        {
+            trays[i].transform.position = locations[i];  
+        }
+
     }
     public void SpawnDice(int dice)
     {
@@ -112,7 +120,6 @@ public class DiceManager2 : MonoBehaviour {
     void Update () {
 
         Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraDirection,  50 * Time.deltaTime);
-
         Vector3 dir  = Vector3.zero;
         dir.x = -Input.acceleration.x;
         dir.z = Input.acceleration.z;
@@ -234,48 +241,58 @@ public class DiceManager2 : MonoBehaviour {
             //swipe ended
             if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
             {
-                //swipe
-                //Revisar, con el if anterior, si el swipe fue suficientemente fuerte para que sea creado
+                
+                //MODULAR FUERZA DEL SWIPE
                 if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
                 {
-                    //revisar la direccion
-                    //Derecha: --> 
+                    //REVISAR LA DIRECCION DEL SWIPE
+                    //DERECHA: "-->" 
                     if(startPos.x < Input.GetTouch(0).position.x){
-                        //Ver en la lista si existen boards anteriores al actual.
-                        if(trayindex > 0){
-                            //Si existe
-                            //Cambiar el Currenttray al anterior
+                        
+                        if(trayindex > 0){                            
+                            //MOVIMIENTO DE TRAYS
                             trayindex = trayindex - 1; 
                             currentTray = trays[trayindex];
                             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
-
-
-                            //Revisar si el tray actual no tenia dados
-                            //GameObject.GetComponentsInChilden<Dice>()
+                            //ELIMINACION DE TRAYS
+                            //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
                             if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
                             {
+                                //Eliminar el tray de la derecha
+                                trays.RemoveAt(trayindex + 1); 
+                                UpdateLocations(trayindex + 1);  
+                                print("Removed");                               
                                 
-                                int borradoIndex = trayindex + 1; 
-                                int finalIndex =  trays.Count - 1; 
-                                if((borradoIndex) < (finalIndex)){
-                                    //Todo Board excepo el ultimo
-                                    for(int i = (borradoIndex + 1); i < (trays.Count); i++){
-                                        int ant = i -1; 
-                                        trays[ant] = trays[i]; 
-                                    }
-                                }
-
                             }
                             
                         }
-                        //De no haber
-                            //, quedarse en el mismo, 
                     }
                     else{
-                        //Izquierda: <--
+                        //IZQUIERDa: "<--"
                         //Revisar si existe tray adelante de la lista
                         if(trayindex < 19){
+                            
+                            //MOVIMIENTO Y CREACION DE TRAYS
                             trayindex = trayindex + 1;
+                            if( trayindex > (trays.Count - 1))
+                            {
+                                //Crear el objeto, moverse al objeto recien creado
+                                GameObject newBoard =Instantiate(trayfab);
+                                newBoard.transform.position = locations[trayindex]; 
+                                trays.Add(newBoard); 
+                                
+                            }
+                            
+                            //ELIMINACION DE TRAYS
+                            //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+                            if(trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
+                            {
+                                trayindex = trayindex - 1; 
+                                trays.RemoveAt(trayindex); 
+                                UpdateLocations(trayindex); 
+                                print("Removed"); 
+                            }
+
                             currentTray = trays[trayindex];
                             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
                         }
