@@ -243,7 +243,7 @@ public class DiceManager2 : MonoBehaviour {
             {
                 
                 //MODULAR FUERZA DEL SWIPE
-                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>500)
                 {
                     //REVISAR LA DIRECCION DEL SWIPE
                     //DERECHA: "-->" 
@@ -259,6 +259,7 @@ public class DiceManager2 : MonoBehaviour {
                             if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
                             {
                                 //Eliminar el tray de la derecha
+                                Destroy(trays[trayindex + 1]);
                                 trays.RemoveAt(trayindex + 1); 
                                 UpdateLocations(trayindex + 1);  
                                 print("Removed");                               
@@ -282,12 +283,13 @@ public class DiceManager2 : MonoBehaviour {
                                 trays.Add(newBoard); 
                                 
                             }
-                            
+
                             //ELIMINACION DE TRAYS
                             //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
                             if(trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
                             {
                                 trayindex = trayindex - 1; 
+                                Destroy(trays[trayindex]);
                                 trays.RemoveAt(trayindex); 
                                 UpdateLocations(trayindex); 
                                 print("Removed"); 
