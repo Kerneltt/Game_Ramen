@@ -58,18 +58,28 @@ public class Dice : MonoBehaviour
         }
     }
 
-    public void RollDice(){
+    public void RollDice() {
         if (locked || rolling)
             return;
         print("rolling");
         rolling = true;
         Invoke("StartDetecting", 2f);
 
-        float randomNum = Random.Range(2f, 10f);
+        float randomNum = Random.Range(-10f, 10f);
+        if (randomNum <= 0 && randomNum > -5)
+        {
+            randomNum = -5;
+        }
+        if (randomNum >= 0 && randomNum < 5)
+        {
+            randomNum = 5;
+        }
+        print(randomNum);
+        myRG.AddForce(Vector3.up * (Mathf.Abs(randomNum)) * upForce, ForceMode.VelocityChange);
+        myRG.AddForce(Vector3.right * randomNum * upForce, ForceMode.VelocityChange);
+        myRG.AddForce(Vector3.forward * randomNum * upForce, ForceMode.VelocityChange);
 
-        myRG.AddForce(Vector3.up * randomNum * upForce, ForceMode.VelocityChange);
-
-        Vector3 randomRoll = new Vector3(Random.Range(1f, 10f), Random.Range(1f, 10f), Random.Range(1f, 10f));
+        Vector3 randomRoll = new Vector3(Random.Range(5f, 10f), Random.Range(5f, 10f), Random.Range(5f, 10f));
 
         myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
 

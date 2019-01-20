@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DiceManager2 : MonoBehaviour {
     Dice[] dices;
+    [SerializeField]
     float force = 100;
     [SerializeField]
     GameObject[] die;
@@ -95,41 +96,41 @@ public class DiceManager2 : MonoBehaviour {
             newdice.transform.localPosition = new Vector3(0, 5, 0);
         }        
     }
-/*
-    public void FixedUpdate(){        
-        float smoothSpeed = 0.125f; 
-        Vector3 offset; 
-        if(boolDirection){
-            offset = new Vector3(17f, 0, 0); 
+    /*
+        public void FixedUpdate(){        
+            float smoothSpeed = 0.125f; 
+            Vector3 offset; 
+            if(boolDirection){
+                offset = new Vector3(17f, 0, 0); 
+            }
+            else{
+                offset = new Vector3(-17f, 0, 0); 
+            } 
+
+            Vector3 desiredPosition = currentTray.transform.position + offset;
+            print(desiredPosition);
+            // print(currentTray.transform.position.x);
+            // print(currentTray.transform.position.y);
+            // print(currentTray.transform.position.z); 
+
+            Camera.main.transform.Translate(currentTray.transform.position * Time.deltaTime);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 20.7f, 0); 
         }
-        else{
-            offset = new Vector3(-17f, 0, 0); 
-        } 
-
-        Vector3 desiredPosition = currentTray.transform.position + offset;
-        print(desiredPosition);
-        // print(currentTray.transform.position.x);
-        // print(currentTray.transform.position.y);
-        // print(currentTray.transform.position.z); 
-
-        Camera.main.transform.Translate(currentTray.transform.position * Time.deltaTime);
-        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 20.7f, 0); 
-    }
-   */
+       */
     // Update is called once per frame
-    void Update () {
+    void Update() {
 
-        Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraDirection,  50 * Time.deltaTime);
-        Vector3 dir  = Vector3.zero;
+        Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, cameraDirection, 50 * Time.deltaTime);
+        Vector3 dir = Vector3.zero;
         dir.x = -Input.acceleration.x;
         dir.z = Input.acceleration.z;
         dir.y = Input.acceleration.y;
         //print(dir);
         //Unlock all dice
-        if (tapcounter>0)
+        if (tapcounter > 0)
         {
             tapcounter--;
-            if (tapcounter==0 && doubletapTimer==true)
+            if (tapcounter == 0 && doubletapTimer == true)
             {
                 doubletapTimer = false;
                 foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
@@ -142,26 +143,66 @@ public class DiceManager2 : MonoBehaviour {
         //Troww all dice
         if (dir.sqrMagnitude > 5)
         {
-            dices =currentTray.GetComponentsInChildren<Dice>();
+            dices = currentTray.GetComponentsInChildren<Dice>();
             dir.Normalize();
             foreach (Dice diceToRoll in dices)
-            {                
+            {
                 diceToRoll.RollDice();
-               // diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+                diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
             }
         }
 
         //tilt dice on tray
-        if (dir.x>1)
+
+        if (dir.x > 0.5)
         {
-            /*
+
             foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
             {
-                dice.gameObject.GetComponent<Rigidbody>().AddForce
+                if (!dice.locked)
+                {
+                    //dice.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 1);
+                    dice.gameObject.transform.parent.Translate(Vector3.left * Time.deltaTime);
+                }
             }
-            */
+
         }
-        
+        if (dir.x < -0.5)
+        {
+
+            foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
+            {
+                if (!dice.locked)
+                {
+                    //dice.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * 1);
+                    dice.gameObject.transform.parent.Translate(Vector3.right * Time.deltaTime);
+                }
+            }
+
+        }
+        /*
+        if (dir.z > -0.7)
+        {
+
+            foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
+            {
+                //dice.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 1);
+                dice.gameObject.transform.parent.Translate(Vector3.forward * Time.deltaTime);
+
+            }
+
+        }
+        if (dir.z < -1)
+        {
+
+            foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
+            {
+                //dice.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * 1);
+                dice.gameObject.transform.parent.Translate(Vector3.back * Time.deltaTime);
+            }
+
+        }
+        */
         if (Input.touchCount>0)
         {            
             if ((Input.GetTouch(0).phase == TouchPhase.Began))
@@ -223,7 +264,7 @@ public class DiceManager2 : MonoBehaviour {
             //move selected dice
             if (Input.GetTouch(0).phase==TouchPhase.Moved && sellectedDice!=null)
             {
-                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>5)
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
                 {
                     sellectedDice.GetComponent<Dice>().Setkillable(true);
                     sellectedDice.GetComponent<Dice>().UnlockDice();
@@ -243,7 +284,7 @@ public class DiceManager2 : MonoBehaviour {
             {
                 
                 //MODULAR FUERZA DEL SWIPE
-                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>500)
+                if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
                 {
                     //REVISAR LA DIRECCION DEL SWIPE
                     //DERECHA: "-->" 
