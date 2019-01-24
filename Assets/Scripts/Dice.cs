@@ -56,6 +56,10 @@ public class Dice : MonoBehaviour
               //  CheckDiceNumber();
             }            
         }
+        if (transform.position.y<0)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 
     public void RollDice() {

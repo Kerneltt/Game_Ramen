@@ -24,7 +24,7 @@ public class DiceManager2 : MonoBehaviour {
     int tapcounter=0;
     int trayindex =0;
     Vector3 cameraDirection;
-
+    public Color diceColor=Color.white;
     [SerializeField]
     List<GameObject> trays;
     List<Vector3> locations = new List<Vector3>(); 
@@ -32,15 +32,22 @@ public class DiceManager2 : MonoBehaviour {
     GameObject currentTray;
     [SerializeField]
     GameObject trayfab;
-    bool boolDirection;  
-
+    bool boolDirection;
+    [SerializeField]
+    GameObject dicepicker;
     //fling
     Vector2 startPosF, endPosf, directionf;
     float touchTimeStart, TouchTimeFinish, timeInterval;
     [SerializeField]
     float throwzx = 50;
     Rigidbody rb;
-
+    [SerializeField]
+    List<GameObject> tracker;
+    [SerializeField]
+    GameObject trackerParent;
+    [SerializeField]
+    GameObject trackerPoint;
+    GameObject currentTracker;
     // Use this for initialization
     void Start () {
         for (int i = 0; i < 20; i++){
@@ -48,14 +55,27 @@ public class DiceManager2 : MonoBehaviour {
             Vector3 v = new Vector3(newx, 0, 0);
             locations.Add(v);  
         }
-
+        diceColor = Color.white;
         currentTray = trays[0];
         trayindex = 0;
         cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        currentTracker = tracker[0];
     }
 
-    public void Setcollor()
+    public void TogglePicker()
     {
+        if (dicepicker.activeInHierarchy)
+        {
+            dicepicker.SetActive(false);
+        }
+        else
+        {
+            dicepicker.SetActive(true);
+        }
+    }
+    public void Setcollor(GameObject btn)
+    {
+        /*
         RectTransform rt = collorpickerIMG.GetComponent<RectTransform>();        
         float width = rt.rect.width;
         float height = rt.rect.height;
@@ -67,7 +87,8 @@ public class DiceManager2 : MonoBehaviour {
         int x = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).x + width / 2) * collors.width) + (width / 2)) / width);
         int y = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).y + height / 2) * collors.height) + (height / 2)) / height);
         collorpickerButton.GetComponent<Image>().color = collors.GetPixel(x, y);
-        
+        */
+        diceColor =btn.GetComponent<Image>().color;
 
 
     }
@@ -91,7 +112,8 @@ public class DiceManager2 : MonoBehaviour {
         {
             print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
-            newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+            //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
+            newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
             newdice.transform.SetParent(currentTray.transform);
             newdice.transform.localPosition = new Vector3(0, 5, 0);
         }        
@@ -297,16 +319,21 @@ public class DiceManager2 : MonoBehaviour {
                             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
                             //ELIMINACION DE TRAYS
                             //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+                            
                             if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
                             {
                                 //Eliminar el tray de la derecha
                                 Destroy(trays[trayindex + 1]);
                                 trays.RemoveAt(trayindex + 1); 
                                 UpdateLocations(trayindex + 1);  
-                                print("Removed");                               
-                                
+                                print("Removed");
+                                Destroy(tracker[trayindex]);
+                                tracker.RemoveAt(trayindex);
+
                             }
-                            
+                            currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                            currentTracker = tracker[trayindex];
+                            currentTracker.transform.localScale = new Vector3(2, 2, 2);
                         }
                     }
                     else{
@@ -320,9 +347,14 @@ public class DiceManager2 : MonoBehaviour {
                             {
                                 //Crear el objeto, moverse al objeto recien creado
                                 GameObject newBoard =Instantiate(trayfab);
+                                GameObject newTracker = Instantiate(trackerPoint);
+                                tracker.Add(newTracker);
+                                newTracker.transform.SetParent(trackerParent.transform);
                                 newBoard.transform.position = locations[trayindex]; 
-                                trays.Add(newBoard); 
-                                
+                                trays.Add(newBoard);
+                                currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                                currentTracker = tracker[trayindex];
+                                currentTracker.transform.localScale = new Vector3(2, 2, 2);
                             }
 
                             //ELIMINACION DE TRAYS
@@ -333,10 +365,15 @@ public class DiceManager2 : MonoBehaviour {
                                 Destroy(trays[trayindex]);
                                 trays.RemoveAt(trayindex); 
                                 UpdateLocations(trayindex); 
-                                print("Removed"); 
+                                print("Removed");
+                                Destroy(tracker[trayindex]);
+                                tracker.RemoveAt(trayindex);
                             }
 
                             currentTray = trays[trayindex];
+                            currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                            currentTracker = tracker[trayindex];
+                            currentTracker.transform.localScale = new Vector3(2, 2, 2);
                             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
                         }
                     }
