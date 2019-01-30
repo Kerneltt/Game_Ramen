@@ -241,9 +241,9 @@ public class DiceManager2 : MonoBehaviour {
                 //detect dice touch or not
                 Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit raycastHit;
-                if (Physics.Raycast(raycast, out raycastHit, 20f, mask))
+                if (Physics.Raycast(raycast, out raycastHit, 40f, mask))
                 {
-
+                    print(raycastHit.transform.position);
                     //dice detected
                     if (raycastHit.collider.tag == "Dice" && raycastHit.collider.gameObject.GetComponent<Dice>()!=null)
                     {
@@ -300,7 +300,7 @@ public class DiceManager2 : MonoBehaviour {
                     sellectedDice.GetComponent<Dice>().Setkillable(true);
                     sellectedDice.GetComponent<Dice>().UnlockDice();
                     sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)));
+                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 20)));
                 }                
             }
             //starting position of finger
@@ -421,7 +421,6 @@ public class DiceManager2 : MonoBehaviour {
             print("rolling");
             foreach (Dice diceToRoll in dices)
             {
-                
                 diceToRoll.RollDice();
             }
         }

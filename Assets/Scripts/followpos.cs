@@ -15,7 +15,7 @@ public class followpos : MonoBehaviour {
 	}
     public void Movepos()
     {
-        GetComponentInChildren<Canvas>().gameObject.transform.position= GetComponentInChildren<Dice>().gameObject.transform.position;        
+        GetComponentInChildren<ParticleSystem>().gameObject.transform.position= GetComponentInChildren<Dice>().gameObject.transform.position;        
     }
 
 }
