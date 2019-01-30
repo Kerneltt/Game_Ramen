@@ -19,6 +19,7 @@ public class DiceManager2 : MonoBehaviour {
     GameObject collorpickerButton;
     GameObject sellectedDice;
     public Vector2 startPos;
+    public Vector2 startPos2;
     public Vector2 direction;
     bool doubletapTimer=false;
     int tapcounter=0;
@@ -48,6 +49,9 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject trackerPoint;
     GameObject currentTracker;
+    bool displayShown=true;
+    [SerializeField]
+    GameObject collorPointer;
     // Use this for initialization
     void Start () {
         for (int i = 0; i < 20; i++){
@@ -55,6 +59,7 @@ public class DiceManager2 : MonoBehaviour {
             Vector3 v = new Vector3(newx, 0, 0);
             locations.Add(v);  
         }
+        dicepicker.GetComponent<Animator>().Play("ShowPanel");
         diceColor = Color.white;
         currentTray = trays[0];
         trayindex = 0;
@@ -64,13 +69,15 @@ public class DiceManager2 : MonoBehaviour {
 
     public void TogglePicker()
     {
-        if (dicepicker.activeInHierarchy)
+        if (displayShown)
         {
-            dicepicker.SetActive(false);
+            dicepicker.GetComponent<Animator>().Play("hidePanel");
+            displayShown = false;
         }
         else
         {
-            dicepicker.SetActive(true);
+            displayShown = true;
+            dicepicker.GetComponent<Animator>().Play("ShowPanel");                      
         }
     }
 
@@ -98,7 +105,7 @@ public class DiceManager2 : MonoBehaviour {
         collorpickerButton.GetComponent<Image>().color = collors.GetPixel(x, y);
         */
         diceColor =btn.GetComponent<Image>().color;
-
+        collorPointer.transform.position = btn.transform.position;
 
     }
     public void CancelTap()
@@ -309,6 +316,7 @@ public class DiceManager2 : MonoBehaviour {
                 //prender bandera swipe
                 //Guardar posicion actual por inicio de swipe
                 startPos = Input.GetTouch(0).position;
+                startPos2 = Input.GetTouch(1).position;
             }
             //swipe ended
             if (Input.touchCount>1)
@@ -317,7 +325,7 @@ public class DiceManager2 : MonoBehaviour {
                 {
 
                     //MODULAR FUERZA DEL SWIPE
-                    if (Vector2.Distance(startPos, Input.GetTouch(0).position) > 5)
+                    if ((Vector2.Distance(startPos, Input.GetTouch(0).position) > 5)|| (Vector2.Distance(startPos2, Input.GetTouch(1).position) > 5))
                     {
                         //REVISAR LA DIRECCION DEL SWIPE
                         //DERECHA: "-->" 
