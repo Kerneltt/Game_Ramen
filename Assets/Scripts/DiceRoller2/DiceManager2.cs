@@ -69,6 +69,7 @@ public class DiceManager2 : MonoBehaviour {
 
     public void TogglePicker()
     {
+        CancelTap();
         if (displayShown)
         {
             dicepicker.GetComponent<Animator>().Play("hidePanel");
@@ -104,6 +105,7 @@ public class DiceManager2 : MonoBehaviour {
         int y = (int)((((collorpickerIMG.transform.InverseTransformPoint(touch.position).y + height / 2) * collors.height) + (height / 2)) / height);
         collorpickerButton.GetComponent<Image>().color = collors.GetPixel(x, y);
         */
+        CancelTap();
         diceColor =btn.GetComponent<Image>().color;
         collorPointer.transform.position = btn.transform.position;
 
