@@ -138,7 +138,8 @@ public class Dice : MonoBehaviour
     {
         if (collision.gameObject.tag== "Killwall" && killable)
         {
-            Destroy(this.gameObject);
+            print("death");
+            Destroy(this.transform.parent.gameObject);
         }
     }
 }

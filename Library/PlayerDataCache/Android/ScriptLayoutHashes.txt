@@ -181,5 +181,5 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-1a75f50e5a19970519f01361421aab5e Assembly-CSharp.dll:.DiceManager2
+fb4f963c128d8004efc7811a48debd46 Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector

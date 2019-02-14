@@ -17,6 +17,7 @@ public class DiceManager2 : MonoBehaviour {
     Texture2D collors;
     [SerializeField]
     GameObject collorpickerButton;
+    [SerializeField]
     GameObject sellectedDice;
     public Vector2 startPos;
     public Vector2 startPos2;
@@ -53,6 +54,8 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject collorPointer;
     // Use this for initialization
+
+
     void Start () {
         for (int i = 0; i < 20; i++){
             float newx = i * 17f;
@@ -126,7 +129,7 @@ public class DiceManager2 : MonoBehaviour {
     public void SpawnDice(int dice)
     {
         CancelTap();
-        if (currentTray.GetComponentsInChildren<Dice>().Length<20)
+        if (currentTray.GetComponentsInChildren<Dice>().Length < 20)
         {
             print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
@@ -134,7 +137,16 @@ public class DiceManager2 : MonoBehaviour {
             newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
             newdice.transform.SetParent(currentTray.transform);
             newdice.transform.localPosition = new Vector3(0, 5, 0);
-        }        
+            sellectedDice = newdice;
+            touchTimeStart = Time.time;
+            startPosF = Input.GetTouch(0).position;
+            rb = sellectedDice.GetComponent<Rigidbody>();
+            sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
+            sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
+            sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,5));
+            sellectedDice.transform.localPosition = screenpoint;
+        }
     }
     /*
         public void FixedUpdate(){        
@@ -309,7 +321,7 @@ public class DiceManager2 : MonoBehaviour {
                     sellectedDice.GetComponent<Dice>().Setkillable(true);
                     sellectedDice.GetComponent<Dice>().UnlockDice();
                     sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 20)));
+                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 18)));
                 }                
             }
             //starting position of finger
@@ -318,7 +330,7 @@ public class DiceManager2 : MonoBehaviour {
                 //prender bandera swipe
                 //Guardar posicion actual por inicio de swipe
                 startPos = Input.GetTouch(0).position;
-                startPos2 = Input.GetTouch(1).position;
+                //startPos2 = Input.GetTouch(1).position;
             }
             //swipe ended
             if (Input.touchCount>1)
