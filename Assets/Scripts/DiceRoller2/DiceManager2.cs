@@ -145,7 +145,7 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
             sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,5));
-            sellectedDice.transform.localPosition = screenpoint;
+            sellectedDice.transform.position = screenpoint;
         }
     }
     /*
