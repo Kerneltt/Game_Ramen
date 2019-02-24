@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4448824, b: 0, a: 1}
+  m_Color: {r: 0.972549, g: 0.73333335, b: 0.08627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2975,6 +2975,7 @@ MonoBehaviour:
   - {fileID: 1662798089029302, guid: 6c03203032d2be14b8c4b9f95f4d3cf3, type: 3}
   - {fileID: 1987458997762462, guid: e656f3032b0d1524e909606ce6b4a382, type: 3}
   - {fileID: 1193880560521688, guid: 5fbb18c78bd9ca6458e592890df1bdfb, type: 3}
+  - {fileID: 1320843658161444, guid: 6259e7e560dceb241a7b6f20ab9612fe, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 512
@@ -4044,7 +4045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.77254903, g: 0.6117647, b: 0.42745098, a: 1}
+  m_Color: {r: 0.6862745, g: 0.17254902, b: 0.3647059, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4193,7 +4194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5366679, g: 0.55624783, b: 0.5660378, a: 1}
+  m_Color: {r: 0.24705882, g: 0.36078432, b: 0.6666667, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5481,7 +5482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.81960785, g: 0.827451, b: 0.83137256, a: 1}
+  m_Color: {r: 0.42745098, g: 0.43137255, b: 0.44313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
