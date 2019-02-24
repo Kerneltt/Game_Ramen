@@ -58,7 +58,7 @@ public class DiceManager2 : MonoBehaviour {
 
     void Start () {
         for (int i = 0; i < 20; i++){
-            float newx = i * 17f;
+            float newx = i * 22f;
             Vector3 v = new Vector3(newx, 0, 0);
             locations.Add(v);  
         }
