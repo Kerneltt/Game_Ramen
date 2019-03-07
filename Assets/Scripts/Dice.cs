@@ -19,7 +19,8 @@ public class Dice : MonoBehaviour
     public Text numberDysplay;
 
     bool killable = false;
-
+    [SerializeField]
+    bool isCoin=false;
     [SerializeField]
     GameObject imageLock;
 
@@ -52,7 +53,7 @@ public class Dice : MonoBehaviour
                 rolling = false;
                 myRG.velocity = Vector3.zero;
                 myRG.angularVelocity = Vector3.zero;
-                Debug.Log("checking number");
+               // Debug.Log("checking number");
               //  CheckDiceNumber();
             }            
         }
@@ -65,7 +66,26 @@ public class Dice : MonoBehaviour
     public void RollDice() {
         if (locked || rolling)
             return;
-        print("rolling");
+        if (isCoin)
+        {
+            //GetComponent<Animator>().Play("none");
+            switch (Random.Range(0, 2))
+            {
+                case 0:         
+                    
+                    GetComponent<Animator>().Play("Rotate_1",-1,0f);
+                    print("0");
+                    //GetComponent<Animator>().SetBool("repeat", false);
+                    break;
+
+                case 1:                    
+                    GetComponent<Animator>().Play("Rotate_2" ,-1, 0f);
+                    print("1");
+                    //GetComponent<Animator>().SetBool("repeat", false);
+                    break;                
+            }            
+        }
+        //print("rolling");
         rolling = true;
         Invoke("StartDetecting", 2f);
 
@@ -78,7 +98,7 @@ public class Dice : MonoBehaviour
         {
             randomNum = 5;
         }
-        print(randomNum);
+        //print(randomNum);
         myRG.AddForce(Vector3.up * (Mathf.Abs(randomNum)) * upForce, ForceMode.VelocityChange);
         myRG.AddForce(Vector3.right * randomNum * upForce, ForceMode.VelocityChange);
         myRG.AddForce(Vector3.forward * randomNum * upForce, ForceMode.VelocityChange);
@@ -104,7 +124,7 @@ public class Dice : MonoBehaviour
                 maxHeight = num.position.y;
             }
         }
-        Debug.Log("answer: " + numberTop.name);
+        //Debug.Log("answer: " + numberTop.name);
         //numberDysplay.text = numberTop.name;
     }
 

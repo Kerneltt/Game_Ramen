@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\ScoreDispaly.cs" />
     <Compile Include="Assets\Scripts\ScoreSave.cs" />
     <Compile Include="Assets\Scripts\TouchRotation.cs" />
+    <None Include="Assets\Coin\Shader\SimpleDiffuseReflect.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Desktop/Unity Proyects/GameRamen/Game_Ramen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

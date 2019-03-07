@@ -440,7 +440,7 @@ public class DiceManager2 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R))
         {
             dices = currentTray.GetComponentsInChildren<Dice>();
-            print("rolling");
+           // print("rolling");
             foreach (Dice diceToRoll in dices)
             {
                 diceToRoll.RollDice();
