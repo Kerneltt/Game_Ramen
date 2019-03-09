@@ -196,11 +196,14 @@ public class DiceManager2 : MonoBehaviour {
         if (dir.sqrMagnitude > 5)
         {
             dices = currentTray.GetComponentsInChildren<Dice>();
-            dir.Normalize();
+            //dir.Normalize();
             foreach (Dice diceToRoll in dices)
             {
                 diceToRoll.RollDice();
-                diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+                if (!diceToRoll.locked)
+                {
+                    diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+                }                
             }
         }
 
