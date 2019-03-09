@@ -286,6 +286,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 93337253144644fa689c6581e8e289b1,
         type: 2}
+    - target: {fileID: 1127260722801368179, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20419a1096eb46f49a0092f34e7062bf, type: 3}
 --- !u!1 &117612563
@@ -1080,7 +1085,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -5034,8 +5039,8 @@ RectTransform:
   m_Father: {fileID: 663022443}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.08}
-  m_AnchorMax: {x: 0.8, y: 0.11100001}
+  m_AnchorMin: {x: 0, y: 0.08}
+  m_AnchorMax: {x: 1, y: 0.11100001}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5237,7 +5242,7 @@ RectTransform:
   m_Father: {fileID: 815296184}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.80000055, y: 0.08}
+  m_AnchorMin: {x: 0.78, y: 0.08}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
