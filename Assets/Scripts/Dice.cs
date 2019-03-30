@@ -20,25 +20,25 @@ public class Dice : MonoBehaviour
 
     bool killable = false;
     [SerializeField]
-    bool isCoin=false;
+    bool isCoin = false;
     [SerializeField]
     GameObject imageLock;
 
-	void Start () {
+    void Start() {
         myRG = GetComponent<Rigidbody>();
 
         Text[] texts = transform.root.GetComponentsInChildren<Text>();
 
-        foreach(Text txt in texts)
+        foreach (Text txt in texts)
         {
-            if(txt.transform.tag == "DiceNumber")
+            if (txt.transform.tag == "DiceNumber")
             {
                 numberDysplay = txt;
             }
         }
 
         diceTester = FindObjectOfType<DiceTester>();
-	}
+    }
     public void Setkillable(bool kill)
     {
         killable = kill;
@@ -48,16 +48,16 @@ public class Dice : MonoBehaviour
     {
         if (rolling)
         {
-            if(myRG.velocity.sqrMagnitude < 0.01f && myRG.angularVelocity.sqrMagnitude < 0.01f)
+            if (myRG.velocity.sqrMagnitude < 0.01f && myRG.angularVelocity.sqrMagnitude < 0.01f)
             {
                 rolling = false;
                 myRG.velocity = Vector3.zero;
                 myRG.angularVelocity = Vector3.zero;
-               // Debug.Log("checking number");
-              //  CheckDiceNumber();
-            }            
+                // Debug.Log("checking number");
+                //  CheckDiceNumber();
+            }
         }
-        if (transform.position.y<0)
+        if (transform.position.y < 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
         }
@@ -71,19 +71,19 @@ public class Dice : MonoBehaviour
             //GetComponent<Animator>().Play("none");
             switch (Random.Range(0, 2))
             {
-                case 0:         
-                    
-                    GetComponent<Animator>().Play("Rotate_1",-1,0f);
+                case 0:
+
+                    GetComponent<Animator>().Play("Rotate_1", -1, 0f);
                     print("0");
                     //GetComponent<Animator>().SetBool("repeat", false);
                     break;
 
-                case 1:                    
-                    GetComponent<Animator>().Play("Rotate_2" ,-1, 0f);
+                case 1:
+                    GetComponent<Animator>().Play("Rotate_2", -1, 0f);
                     print("1");
                     //GetComponent<Animator>().SetBool("repeat", false);
-                    break;                
-            }            
+                    break;
+            }
         }
         //print("rolling");
         rolling = true;
@@ -110,15 +110,15 @@ public class Dice : MonoBehaviour
         //numberDysplay.text = "";
     }
 
-    void CheckDiceNumber() 
+    void CheckDiceNumber()
     {
         Transform numberTop = myNumbers[0];
         float height = 0;
         float maxHeight = -2f;
-        foreach(Transform num in myNumbers)
+        foreach (Transform num in myNumbers)
         {
             height = num.position.y;
-            if(height > maxHeight)
+            if (height > maxHeight)
             {
                 numberTop = num;
                 maxHeight = num.position.y;
@@ -130,13 +130,13 @@ public class Dice : MonoBehaviour
 
     void StartDetecting()
     {
-        rolling = true; 
+        rolling = true;
     }
 
     public void LockDice()
     {
         locked = true;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;        
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         imageLock.SetActive(true);
         GetComponentInParent<followpos>().Movepos();
     }
@@ -156,10 +156,13 @@ public class Dice : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag== "Killwall" && killable)
+        if (collision.gameObject.tag == "Killwall" && killable)
         {
             print("death");
             Destroy(this.transform.parent.gameObject);
         }
     }
+
+    public bool  getIsCoin()
+    { return isCoin; }
 }

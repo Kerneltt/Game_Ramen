@@ -428,13 +428,31 @@ public class DiceManager2 : MonoBehaviour {
                 if (sellectedDice.GetComponent<Dice>().locked==false)
                 {
                     sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    if (sellectedDice.GetComponent<Dice>().getIsCoin())
+                    {
+                        switch (Random.Range(0, 2))
+                        {
+                            case 0:
+
+                                sellectedDice.GetComponent<Animator>().Play("Rotate_1", -1, 0f);
+                                print("0");
+                                //GetComponent<Animator>().SetBool("repeat", false);
+                                break;
+
+                            case 1:
+                                sellectedDice.GetComponent<Animator>().Play("Rotate_2", -1, 0f);
+                                print("1");
+                                //GetComponent<Animator>().SetBool("repeat", false);
+                                break;
+                        }
+                    }
+
                 }
                 TouchTimeFinish = Time.time;
                 timeInterval = TouchTimeFinish - touchTimeStart;
                 endPosf = Input.GetTouch(0).position;
                 directionf = endPosf - startPosF;
                 rb.AddForce(directionf.x*throwzx/timeInterval,0,directionf.y*throwzx/timeInterval);
-
                 sellectedDice = null;
             }
 
@@ -448,6 +466,75 @@ public class DiceManager2 : MonoBehaviour {
             {
                 diceToRoll.RollDice();
             }
+        }
+    }
+    public void TrayLeft()
+    {
+        if (trayindex > 0)
+        {
+            //MOVIMIENTO DE TRAYS
+            trayindex = trayindex - 1;
+            currentTray = trays[trayindex];
+            cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            //ELIMINACION DE TRAYS
+            //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+
+            if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
+            {
+                //Eliminar el tray de la derecha
+                Destroy(trays[trayindex + 1]);
+                trays.RemoveAt(trayindex + 1);
+                UpdateLocations(trayindex + 1);
+                print("Removed");
+                Destroy(tracker[trayindex]);
+                tracker.RemoveAt(trayindex);
+
+            }
+            currentTracker.transform.localScale = new Vector3(1, 1, 1);
+            currentTracker = tracker[trayindex];
+            currentTracker.transform.localScale = new Vector3(2, 2, 2);
+        }
+    }
+
+    public void TrayRight()
+    {
+        if (trayindex < 19)
+        {
+
+            //MOVIMIENTO Y CREACION DE TRAYS
+            trayindex = trayindex + 1;
+            if (trayindex > (trays.Count - 1))
+            {
+                //Crear el objeto, moverse al objeto recien creado
+                GameObject newBoard = Instantiate(trayfab);
+                GameObject newTracker = Instantiate(trackerPoint);
+                tracker.Add(newTracker);
+                newTracker.transform.SetParent(trackerParent.transform);
+                newBoard.transform.position = locations[trayindex];
+                trays.Add(newBoard);
+                currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                currentTracker = tracker[trayindex];
+                currentTracker.transform.localScale = new Vector3(2, 2, 2);
+            }
+
+            //ELIMINACION DE TRAYS
+            //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+            if (trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
+            {
+                trayindex = trayindex - 1;
+                Destroy(trays[trayindex]);
+                trays.RemoveAt(trayindex);
+                UpdateLocations(trayindex);
+                print("Removed");
+                Destroy(tracker[trayindex]);
+                tracker.RemoveAt(trayindex);
+            }
+
+            currentTray = trays[trayindex];
+            currentTracker.transform.localScale = new Vector3(1, 1, 1);
+            currentTracker = tracker[trayindex];
+            currentTracker.transform.localScale = new Vector3(2, 2, 2);
+            cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
     }
 }
