@@ -50,11 +50,10 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject trackerPoint;
     GameObject currentTracker;
-    bool displayShown=true;
+    bool displayShown;
     [SerializeField]
     GameObject collorPointer;
     // Use this for initialization
-
 
     void Start () {
         for (int i = 0; i < 20; i++){
@@ -62,7 +61,8 @@ public class DiceManager2 : MonoBehaviour {
             Vector3 v = new Vector3(newx, 0, 0);
             locations.Add(v);  
         }
-        dicepicker.GetComponent<Animator>().Play("ShowPanel");
+        displayShown = false;
+        dicepicker.GetComponent<Animator>().Play("DicePickerStart");
         diceColor = Color.white;
         currentTray = trays[0];
         trayindex = 0;
