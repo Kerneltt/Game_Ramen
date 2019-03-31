@@ -53,15 +53,33 @@ public class DiceManager2 : MonoBehaviour {
     bool displayShown;
     [SerializeField]
     GameObject collorPointer;
+    [SerializeField]
+    GameObject menuFader;
+    private Animator menuAnim;
+    [SerializeField]
+    GameObject infoFader;
+    private Animator infoAnim;
+    [SerializeField]
+    GameObject sideSweepArea;
+    private Animator sidesweepAnim;
+
     // Use this for initialization
+
+    private void Awake()
+    {
+        menuAnim = menuFader.GetComponent<Animator>();
+        infoAnim = infoFader.GetComponent<Animator>();
+        sidesweepAnim = sideSweepArea.GetComponent<Animator>();
+    }
 
     void Start () {
         for (int i = 0; i < 20; i++){
             float newx = i * 22f;
             Vector3 v = new Vector3(newx, 0, 0);
             locations.Add(v);  
-        }
+        }   
         displayShown = false;
+        menuAnim.SetTrigger("Start"); infoAnim.SetTrigger("Start"); sidesweepAnim.SetTrigger("Start");
         dicepicker.GetComponent<Animator>().Play("DicePickerStart");
         diceColor = Color.white;
         currentTray = trays[0];
@@ -77,11 +95,32 @@ public class DiceManager2 : MonoBehaviour {
         {
             dicepicker.GetComponent<Animator>().Play("hidePanel");
             displayShown = false;
+            // Show bottom menu
+            menuAnim.ResetTrigger("Start");
+            menuAnim.ResetTrigger("Hide");
+            menuAnim.SetTrigger("Show");
+            // Show info button
+            infoAnim.ResetTrigger("Start");
+            infoAnim.ResetTrigger("Hide");
+            infoAnim.SetTrigger("Show");
+            // Enable border sweep areas
+            sidesweepAnim.ResetTrigger("Start");
+            sidesweepAnim.ResetTrigger("Hide");
+            sidesweepAnim.SetTrigger("Show");
         }
         else
         {
             displayShown = true;
-            dicepicker.GetComponent<Animator>().Play("ShowPanel");                      
+            dicepicker.GetComponent<Animator>().Play("ShowPanel");
+            // Hide bottom menu
+            menuAnim.ResetTrigger("Show");
+            menuAnim.SetTrigger("Hide");
+            // Hide Info button
+            infoAnim.ResetTrigger("Show");
+            infoAnim.SetTrigger("Hide");
+            // Disable boder sweep areas
+            sidesweepAnim.ResetTrigger("Show");
+            sidesweepAnim.SetTrigger("Hide");
         }
     }
 
