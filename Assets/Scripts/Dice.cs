@@ -154,9 +154,19 @@ public class Dice : MonoBehaviour
         diceTester.ReorderAll();
         Destroy(transform.root.gameObject);
     }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Killwall" && killable)
+        {
+            print("death");
+            Destroy(this.transform.parent.gameObject);
+        }
+    }
+    */
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Killwall" && killable)
         {
             print("death");
             Destroy(this.transform.parent.gameObject);

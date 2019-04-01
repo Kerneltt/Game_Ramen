@@ -70,6 +70,7 @@ public class DiceManager2 : MonoBehaviour {
         menuAnim = menuFader.GetComponent<Animator>();
         infoAnim = infoFader.GetComponent<Animator>();
         sidesweepAnim = sideSweepArea.GetComponent<Animator>();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     void Start () {

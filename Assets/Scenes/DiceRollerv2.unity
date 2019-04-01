@@ -927,6 +927,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d9c700bf7c0e3d343b767d6c4c5c1e44, type: 2}
+    - target: {fileID: 4556341080182822, guid: 20419a1096eb46f49a0092f34e7062bf, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667790223792922797, guid: 20419a1096eb46f49a0092f34e7062bf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20419a1096eb46f49a0092f34e7062bf, type: 3}
 --- !u!1 &117612563
@@ -1662,6 +1671,7 @@ GameObject:
   - component: {fileID: 334782179}
   - component: {fileID: 334782178}
   - component: {fileID: 334782177}
+  - component: {fileID: 334782180}
   m_Layer: 5
   m_Name: DiceWinToggle
   m_TagString: Untagged
@@ -1778,6 +1788,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334782175}
   m_CullTransparentMesh: 0
+--- !u!114 &334782180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334782175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1453620842}
+          m_MethodName: TogglePicker
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &341759669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3942,7 +3983,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 630600183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: TrayLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &630600183
@@ -8482,7 +8534,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1238925666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: TrayRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1238925666
@@ -9156,7 +9219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded52a4ff3199cf45b3b07acf1bbb3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
+  force: 75
   die:
   - {fileID: 5019508102752295416, guid: 4861cf96a01598542b228a86e6fc6352, type: 3}
   - {fileID: 1515581173618442, guid: b410d583f3f28804fae707bedf0d955d, type: 3}
@@ -9846,7 +9909,7 @@ GameObject:
   - component: {fileID: 1615789013}
   - component: {fileID: 1615789012}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Welcome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
