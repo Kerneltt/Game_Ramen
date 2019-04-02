@@ -22,14 +22,14 @@ public class DiceManager2 : MonoBehaviour {
     public Vector2 startPos;
     public Vector2 startPos2;
     public Vector2 direction;
-    bool doubletapTimer=false;
-    int tapcounter=0;
-    int trayindex =0;
+    bool doubletapTimer = false;
+    int tapcounter = 0;
+    int trayindex = 0;
     Vector3 cameraDirection;
-    public Color diceColor=Color.white;
+    public Color diceColor = Color.white;
     [SerializeField]
     List<GameObject> trays;
-    List<Vector3> locations = new List<Vector3>(); 
+    List<Vector3> locations = new List<Vector3>();
     [SerializeField]
     GameObject currentTray;
     [SerializeField]
@@ -53,8 +53,8 @@ public class DiceManager2 : MonoBehaviour {
     //[SerializeField]
     //Color currentTrackerColor = Color.white;
     [SerializeField]
-    float scaleMultiplier = 2.0f;
-    Vector3 trackerScale = new Vector3(1,1,1);
+    float scaleMultiplier = 2.5f;
+    Vector3 trackerScale = new Vector3(1, 1, 1);
     bool displayShown;
     [SerializeField]
     GameObject collorPointer;
@@ -67,7 +67,10 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject sideSweepArea;
     private Animator sidesweepAnim;
-
+    [SerializeField]
+    GameObject trayButtonL;
+    [SerializeField]
+    GameObject trayButtonR;
     // Use this for initialization
 
     private void Awake()
@@ -554,6 +557,17 @@ public class DiceManager2 : MonoBehaviour {
             currentTracker.transform.localScale = new Vector3(1, 1, 1);
             currentTracker = tracker[trayindex];
             currentTracker.transform.localScale = trackerScale;
+
+            if (trays.Count == 1)
+            {
+                trayButtonL.SetActive(false);
+ 
+            }
+            else
+            {
+                trayButtonL.SetActive(true);
+                trayButtonR.SetActive(true);
+            }
         }
     }
 
@@ -596,6 +610,16 @@ public class DiceManager2 : MonoBehaviour {
             currentTracker = tracker[trayindex];
             currentTracker.transform.localScale = trackerScale;
             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            if (trays.Count==20)
+            {
+                trayButtonR.SetActive(false);
+                
+            }
+            else
+            {
+                trayButtonR.SetActive(true);
+                trayButtonL.SetActive(true);
+            }
         }
     }
 }

@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Assets/Scenes/DiceRoller.unity
     guid: 002c3f6aef0ee493682d878c8c883f67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ResourceTracker.unity
     guid: f629cdf0dc3a1994bb74aafc4c870aa8
   - enabled: 0
     path: Assets/Scenes/UIDiceRoller.unity
     guid: 22e26bab346824e3fbdf46386cd9dc77
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PointTracker.unity
     guid: d459572da9f19dc4095c64f16c9730f4
   - enabled: 0
