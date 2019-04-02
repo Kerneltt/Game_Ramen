@@ -193,7 +193,10 @@ public class DiceManager2 : MonoBehaviour {
             print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
             //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
-            newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+            if (newdice.GetComponent<Dice>().getIsCoin()==false)
+            {
+                newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+            }            
             newdice.transform.SetParent(currentTray.transform);
             newdice.transform.localPosition = new Vector3(0, 5, 0);
             sellectedDice = newdice;
