@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{1B08D1AC-844D-DD6A-4D90-731D1DE2259D}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DiceRoller2/DiceManager2.cs">
+    <Files>
+      <File FileName="Assets/Scripts/DiceRoller2/DiceManager2.cs" Line="54" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/DiceRollerv2.unity
+- path: Assets/Scenes/DiceRollerv3.unity
   isLoaded: 1
   isActive: 1

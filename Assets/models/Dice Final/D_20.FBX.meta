@@ -74,8 +74,8 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
+    blendShapeNormalImportMode: 2
+    normalSmoothingSource: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

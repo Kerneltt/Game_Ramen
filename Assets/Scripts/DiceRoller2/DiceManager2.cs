@@ -50,6 +50,11 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject trackerPoint;
     GameObject currentTracker;
+    //[SerializeField]
+    //Color currentTrackerColor = Color.white;
+    [SerializeField]
+    float scaleMultiplier = 2.0f;
+    Vector3 trackerScale = new Vector3(1,1,1);
     bool displayShown;
     [SerializeField]
     GameObject collorPointer;
@@ -80,6 +85,7 @@ public class DiceManager2 : MonoBehaviour {
             locations.Add(v);  
         }   
         displayShown = false;
+        trackerScale = new Vector3(1 * scaleMultiplier, 1 * scaleMultiplier, 1 * scaleMultiplier);
         menuAnim.SetTrigger("Start"); infoAnim.SetTrigger("Start"); sidesweepAnim.SetTrigger("Start");
         dicepicker.GetComponent<Animator>().Play("DicePickerStart");
         diceColor = Color.white;
@@ -87,6 +93,7 @@ public class DiceManager2 : MonoBehaviour {
         trayindex = 0;
         cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
         currentTracker = tracker[0];
+        collorPointer.GetComponent<Image>().color = Color.grey;
     }
 
     public void TogglePicker()
@@ -151,6 +158,15 @@ public class DiceManager2 : MonoBehaviour {
         CancelTap();
         diceColor =btn.GetComponent<Image>().color;
         collorPointer.transform.position = btn.transform.position;
+        if (diceColor == Color.white)
+        {
+            collorPointer.GetComponent<Image>().color = Color.grey;
+
+        }
+        else
+        {
+            collorPointer.GetComponent<Image>().color = Color.white;
+        }
 
     }
     public void CancelTap()
@@ -411,7 +427,8 @@ public class DiceManager2 : MonoBehaviour {
                                 }
                                 currentTracker.transform.localScale = new Vector3(1, 1, 1);
                                 currentTracker = tracker[trayindex];
-                                currentTracker.transform.localScale = new Vector3(2, 2, 2);
+                                currentTracker.transform.localScale = trackerScale;
+                                //
                             }
                         }
                         else
@@ -434,7 +451,7 @@ public class DiceManager2 : MonoBehaviour {
                                     trays.Add(newBoard);
                                     currentTracker.transform.localScale = new Vector3(1, 1, 1);
                                     currentTracker = tracker[trayindex];
-                                    currentTracker.transform.localScale = new Vector3(2, 2, 2);
+                                    currentTracker.transform.localScale = trackerScale;
                                 }
 
                                 //ELIMINACION DE TRAYS
@@ -453,7 +470,7 @@ public class DiceManager2 : MonoBehaviour {
                                 currentTray = trays[trayindex];
                                 currentTracker.transform.localScale = new Vector3(1, 1, 1);
                                 currentTracker = tracker[trayindex];
-                                currentTracker.transform.localScale = new Vector3(2, 2, 2);
+                                currentTracker.transform.localScale = trackerScale;
                                 cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
                             }
                         }
@@ -507,6 +524,10 @@ public class DiceManager2 : MonoBehaviour {
                 diceToRoll.RollDice();
             }
         }
+
+    //currentTracker.GetComponent<Image>().color = currentTrackerColor;
+
+
     }
     public void TrayLeft()
     {
@@ -532,7 +553,7 @@ public class DiceManager2 : MonoBehaviour {
             }
             currentTracker.transform.localScale = new Vector3(1, 1, 1);
             currentTracker = tracker[trayindex];
-            currentTracker.transform.localScale = new Vector3(2, 2, 2);
+            currentTracker.transform.localScale = trackerScale;
         }
     }
 
@@ -554,7 +575,7 @@ public class DiceManager2 : MonoBehaviour {
                 trays.Add(newBoard);
                 currentTracker.transform.localScale = new Vector3(1, 1, 1);
                 currentTracker = tracker[trayindex];
-                currentTracker.transform.localScale = new Vector3(2, 2, 2);
+                currentTracker.transform.localScale = trackerScale;
             }
 
             //ELIMINACION DE TRAYS
@@ -573,7 +594,7 @@ public class DiceManager2 : MonoBehaviour {
             currentTray = trays[trayindex];
             currentTracker.transform.localScale = new Vector3(1, 1, 1);
             currentTracker = tracker[trayindex];
-            currentTracker.transform.localScale = new Vector3(2, 2, 2);
+            currentTracker.transform.localScale = trackerScale;
             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
     }
