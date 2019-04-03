@@ -206,7 +206,7 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
             sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
             sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,5));
+            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,20));
             sellectedDice.transform.position = screenpoint;
         }
     }
@@ -571,6 +571,10 @@ public class DiceManager2 : MonoBehaviour {
                 trayButtonL.SetActive(true);
                 trayButtonR.SetActive(true);
             }
+            if (trayindex==0)
+            {
+                trayButtonL.SetActive(false);
+            }
         }
     }
 
@@ -622,6 +626,10 @@ public class DiceManager2 : MonoBehaviour {
             {
                 trayButtonR.SetActive(true);
                 trayButtonL.SetActive(true);
+            }
+            if (trayindex == 19)
+            {
+                trayButtonR.SetActive(false);
             }
         }
     }
