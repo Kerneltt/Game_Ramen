@@ -2,9 +2,6 @@ iOS
 PlayerPath?
 /Users/mediamanagers/Desktop/Builds/GAME RAMEN
 SceneListBegin?
-Assets/Scenes/MainMenu.unity
-Assets/Scenes/ResourceTracker.unity
-Assets/Scenes/PointTracker.unity
 Assets/Scenes/DiceRollerv3.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
@@ -208,5 +205,6 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AmbientOcclusion
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-122ea4226657aaed0095efa0089b9f9f Assembly-CSharp.dll:.DiceManager2
+530991ee45f77b2e7b19d68c1361cadf Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
+bb73c4aee4b6e074c77c97a9e3fc4609 Assembly-CSharp.dll:.UI_Manager
