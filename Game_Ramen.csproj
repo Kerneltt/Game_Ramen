@@ -373,6 +373,7 @@
     <Compile Include="Assets\Scripts\ScoreDispaly.cs" />
     <Compile Include="Assets\Scripts\ScoreSave.cs" />
     <Compile Include="Assets\Scripts\TouchRotation.cs" />
+    <Compile Include="Assets\Scripts\UI_Manager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Coin\Shader\SimpleDiffuseReflect.shader" />
