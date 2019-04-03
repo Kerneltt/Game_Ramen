@@ -23,7 +23,7 @@ public class Dice : MonoBehaviour
     bool isCoin = false;
     [SerializeField]
     GameObject imageLock;
-
+    float maxVelocity = 20;
     void Start() {
         myRG = GetComponent<Rigidbody>();
 
@@ -64,8 +64,9 @@ public class Dice : MonoBehaviour
     }
 
     public void RollDice() {
-        if (locked || rolling)
-            return;
+        //if (locked || rolling)
+        if (locked)
+                return;
         if (isCoin)
         {
             //GetComponent<Animator>().Play("none");
@@ -106,7 +107,12 @@ public class Dice : MonoBehaviour
         Vector3 randomRoll = new Vector3(Random.Range(5f, 10f), Random.Range(5f, 10f), Random.Range(5f, 10f));
 
         myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
-
+        if (myRG.velocity.sqrMagnitude > maxVelocity)
+        {
+            //smoothness of the slowdown is controlled by the 0.99f, 
+            //0.5f is less smooth, 0.9999f is more smooth
+            myRG.velocity *= 0.5f;
+        }
         //numberDysplay.text = "";
     }
 

@@ -206,7 +206,7 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
             sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
             sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,20));
+            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,18));
             sellectedDice.transform.position = screenpoint;
         }
     }
@@ -255,7 +255,7 @@ public class DiceManager2 : MonoBehaviour {
             }
         }
         //Troww all dice
-        if (dir.sqrMagnitude > 5)
+        if (dir.sqrMagnitude > 3)
         {
             dices = currentTray.GetComponentsInChildren<Dice>();
             //dir.Normalize();
@@ -264,7 +264,7 @@ public class DiceManager2 : MonoBehaviour {
                 diceToRoll.RollDice();
                 if (!diceToRoll.locked)
                 {
-                    diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+                    //diceToRoll.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
                 }                
             }
         }
