@@ -26,6 +26,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.followpos
 af93f9c42e90877a9ba31e37adfd900c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.MotionBlur
+43c27cf7573d252442b3e04a8727bab4 Assembly-CSharp.dll:.PerfectFOV
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.Editor.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -136,6 +137,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 61b9d9b6f4b6a222dfea8b131b3d3227 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ChromaticAberration
 3e345838d555e3f0f0a651f8c577cd84 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineAsset
+03ac6ca9edf52232364782e85f6b8d2d Assembly-CSharp.dll:.CanvasGraphicDesignGrid
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 908bf8e34f40bc7178a47d9feda1949b Assembly-CSharp.dll:.Dice
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DiceTools
@@ -188,6 +190,7 @@ c69e10d82263d95eba11560757139ceb Unity.RenderPipelines.Lightweight.Runtime.dll:U
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+bb73c4aee4b6e074c77c97a9e3fc4609 Assembly-CSharp.dll:.UI_Manager
 b9c6f7358c6c4a116c264d7c7f6f08b1 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineEditorResources
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScoreShow
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
@@ -205,5 +208,4 @@ ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 530991ee45f77b2e7b19d68c1361cadf Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
-43c27cf7573d252442b3e04a8727bab4 Assembly-CSharp.dll:.PerfectFOV
-03ac6ca9edf52232364782e85f6b8d2d Assembly-CSharp.dll:.CanvasGraphicDesignGrid
+71238ecd94a9a900f66e11edec285929 Assembly-CSharp.dll:.DontGoThroughThings

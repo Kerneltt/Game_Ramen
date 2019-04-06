@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 54558299739036062}
   - component: {fileID: 64463375322015258}
   - component: {fileID: 114190758833743526}
+  - component: {fileID: 2221806984574037366}
   m_Layer: 9
   m_Name: 20
   m_TagString: Dice
@@ -272,6 +273,23 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 1086577495113524332}
+--- !u!114 &2221806984574037366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422557959945924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2f36ab2114a5c48a17df33962d7488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendTriggerMessage: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1335
+  skinWidth: 0.3
 --- !u!1 &1747182568480852
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,6 +66,23 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 1
   imageLock: {fileID: 2456420167802455076}
+--- !u!114 &3649400021113769544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019508101217675256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2f36ab2114a5c48a17df33962d7488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendTriggerMessage: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1335
+  skinWidth: 0.3
 --- !u!1 &5019508102752295416
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +135,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5019508102752295418}
     m_Modifications:
+    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
+      propertyPath: m_Name
+      value: Coin_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,18 +199,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
-      propertyPath: m_Name
-      value: Coin_3
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
-      propertyPath: m_TagString
-      value: Dice
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -207,6 +224,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5019508102752295418}
     m_Modifications:
+    - target: {fileID: 7475435688025235267, guid: be50bcfb3911cb043a6e2b5ff0175d83,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475435688025235267, guid: be50bcfb3911cb043a6e2b5ff0175d83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6929339356025997076, guid: be50bcfb3911cb043a6e2b5ff0175d83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,16 +287,6 @@ PrefabInstance:
     - target: {fileID: 6929339356025997076, guid: be50bcfb3911cb043a6e2b5ff0175d83,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7475435688025235267, guid: be50bcfb3911cb043a6e2b5ff0175d83,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System
-      objectReference: {fileID: 0}
-    - target: {fileID: 7475435688025235267, guid: be50bcfb3911cb043a6e2b5ff0175d83,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

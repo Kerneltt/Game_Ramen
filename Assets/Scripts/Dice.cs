@@ -23,7 +23,7 @@ public class Dice : MonoBehaviour
     bool isCoin = false;
     [SerializeField]
     GameObject imageLock;
-    float maxVelocity = 20;
+    float maxVelocity = 30;
     void Start() {
         myRG = GetComponent<Rigidbody>();
 
@@ -64,49 +64,60 @@ public class Dice : MonoBehaviour
     }
 
     public void RollDice() {
-        //if (locked || rolling)
-        if (locked)
+        if (locked )
                 return;
-        if (isCoin)
+        if (rolling)
         {
-            //GetComponent<Animator>().Play("none");
-            switch (Random.Range(0, 2))
+            print("is this happening?");
+            myRG.AddForce(Vector3.Normalize( myRG.velocity) *100 ,ForceMode.VelocityChange);
+        }
+        else
+        {
+            if (isCoin)
             {
-                case 0:
+                //GetComponent<Animator>().Play("none");
+                switch (Random.Range(0, 2))
+                {
+                    case 0:
 
-                    GetComponent<Animator>().Play("Rotate_1", -1, 0f);
-                    print("0");
-                    //GetComponent<Animator>().SetBool("repeat", false);
-                    break;
+                        GetComponent<Animator>().Play("Rotate_1", -1, 0f);
+                        print("0");
+                        //GetComponent<Animator>().SetBool("repeat", false);
+                        break;
 
-                case 1:
-                    GetComponent<Animator>().Play("Rotate_2", -1, 0f);
-                    print("1");
-                    //GetComponent<Animator>().SetBool("repeat", false);
-                    break;
+                    case 1:
+                        GetComponent<Animator>().Play("Rotate_2", -1, 0f);
+                        print("1");
+                        //GetComponent<Animator>().SetBool("repeat", false);
+                        break;
+                }
             }
-        }
-        //print("rolling");
-        rolling = true;
-        Invoke("StartDetecting", 2f);
+            //print("rolling");
+            rolling = true;
+            Invoke("StartDetecting", 2f);
 
-        float randomNum = Random.Range(-10f, 10f);
-        if (randomNum <= 0 && randomNum > -5)
-        {
-            randomNum = -5;
-        }
-        if (randomNum >= 0 && randomNum < 5)
-        {
-            randomNum = 5;
-        }
-        //print(randomNum);
-        myRG.AddForce(Vector3.up * (Mathf.Abs(randomNum)) * upForce, ForceMode.VelocityChange);
-        myRG.AddForce(Vector3.right * randomNum * upForce, ForceMode.VelocityChange);
-        myRG.AddForce(Vector3.forward * randomNum * upForce, ForceMode.VelocityChange);
+            float randomNum = Random.Range(-10f, 10f);
+            if (randomNum <= 0 && randomNum > -5)
+            {
+                randomNum = -5;
+            }
+            if (randomNum >= 0 && randomNum < 5)
+            {
+                randomNum = 5;
+            }
+            //print(randomNum);
+            myRG.AddForce(Vector3.up * (Mathf.Abs(randomNum)) * upForce, ForceMode.VelocityChange);
+            myRG.AddForce(Vector3.right * randomNum * upForce, ForceMode.VelocityChange);
+            myRG.AddForce(Vector3.forward * randomNum * upForce, ForceMode.VelocityChange);
 
-        Vector3 randomRoll = new Vector3(Random.Range(5f, 10f), Random.Range(5f, 10f), Random.Range(5f, 10f));
+            Vector3 randomRoll = new Vector3(Random.Range(5f, 10f), Random.Range(5f, 10f), Random.Range(5f, 10f));
 
-        myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
+            myRG.AddTorque(randomRoll * randomNum, ForceMode.VelocityChange);
+        }
+        
+        
+        
+
         if (myRG.velocity.sqrMagnitude > maxVelocity)
         {
             //smoothness of the slowdown is controlled by the 0.99f, 

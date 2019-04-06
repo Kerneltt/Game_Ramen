@@ -190,7 +190,7 @@ public class DiceManager2 : MonoBehaviour {
         CancelTap();
         if (currentTray.GetComponentsInChildren<Dice>().Length < 20)
         {
-            print("creatingDice");
+            //print("creatingDice");
             GameObject newdice = Instantiate(die[dice]);
             //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             if (newdice.GetComponentInChildren<Dice>().getIsCoin()==false)
@@ -206,7 +206,9 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
             sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
             sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y+10,18));
+            float fixz= (((Input.GetTouch(0).position.y * 100) / Screen.height) * (Mathf.Sin(Mathf.Deg2Rad * 60)) / 10);
+            //print(fixz);
+            Vector3 screenpoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y,10+fixz));
             sellectedDice.transform.position = screenpoint;
         }
     }
@@ -251,7 +253,7 @@ public class DiceManager2 : MonoBehaviour {
                 {
                     dice.UnlockDice();
                 }
-                print("Unlockall");
+               // print("Unlockall");
             }
         }
         //Troww all dice
@@ -329,7 +331,7 @@ public class DiceManager2 : MonoBehaviour {
                 RaycastHit raycastHit;
                 if (Physics.Raycast(raycast, out raycastHit, 40f, mask))
                 {
-                    print(raycastHit.transform.position);
+                   // print(raycastHit.transform.position);
                     //dice detected
                     if (raycastHit.collider.tag == "Dice" && raycastHit.collider.gameObject.GetComponent<Dice>()!=null)
                     {
@@ -363,7 +365,7 @@ public class DiceManager2 : MonoBehaviour {
                             }
                             doubletapTimer = false;
                             tapcounter = 0;
-                            print("TapRoll");
+                           // print("TapRoll");
                         }
                         //detect first tap
                         else
@@ -371,7 +373,7 @@ public class DiceManager2 : MonoBehaviour {
                         {
                             doubletapTimer = true;
                             tapcounter = 50;
-                            print("TapOnce");
+                           // print("TapOnce");
                         }
                                       
                         startPos = Input.GetTouch(0).position;
@@ -386,7 +388,8 @@ public class DiceManager2 : MonoBehaviour {
                     sellectedDice.GetComponent<Dice>().Setkillable(true);
                     sellectedDice.GetComponent<Dice>().UnlockDice();
                     sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 18)));
+                    float fixz = (((Input.GetTouch(0).position.y * 100) / Screen.height) * (Mathf.Sin(Mathf.Deg2Rad * 60))/10);
+                    sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10+fixz)));
                 }                
             }
             //starting position of finger
