@@ -16,7 +16,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &5019508102830079189
+--- !u!64 &1206053786986767628
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,8 +28,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: -1
-  m_Mesh: {fileID: 4300000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 6299fc8d94cabca4f9c6a742c33126e1, type: 3}
 --- !u!95 &5019508102830079184
 Animator:
   serializedVersion: 3
@@ -49,23 +49,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5019508102830079191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5019508101217675256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4f36279ced449769b61735fe9f610c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locked: 0
-  myNumbers: []
-  numberDysplay: {fileID: 0}
-  isCoin: 1
-  imageLock: {fileID: 2456420167802455076}
 --- !u!114 &3649400021113769544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +66,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1335
   skinWidth: 0.3
+--- !u!114 &5019508102830079191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019508101217675256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4f36279ced449769b61735fe9f610c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  myNumbers: []
+  numberDysplay: {fileID: 0}
+  isCoin: 1
+  imageLock: {fileID: 2456420167802455076}
 --- !u!1 &5019508102752295416
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 5019508102752295416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.69, y: 1.46, z: 0.00000029802322}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5019508101217385432}
   - {fileID: 2702464789076860019}
@@ -193,11 +193,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4706e7ec69c8f9a438665a9717372d27, type: 3}
       propertyPath: m_Materials.Array.data[0]
