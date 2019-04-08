@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-E:/Relato/PizzaNGames/Builds/GameRamen/Anndroid/GameRamen.apk
+D:/Desktop/Unity Proyects/GameRamen/builds/android/gameramen.apk
 SceneListBegin?
 Assets/Scenes/DiceRollerv3.unity
 SceneListEnd?

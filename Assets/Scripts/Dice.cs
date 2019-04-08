@@ -46,6 +46,12 @@ public class Dice : MonoBehaviour
 
     private void Update()
     {
+        if (GetComponent<Rigidbody>()==null)
+        {
+            Rigidbody rb = gameObject.AddComponent<Rigidbody>() as Rigidbody;
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            myRG = rb;
+        }
         if (rolling)
         {
             if (myRG.velocity.sqrMagnitude < 0.01f && myRG.angularVelocity.sqrMagnitude < 0.01f)
