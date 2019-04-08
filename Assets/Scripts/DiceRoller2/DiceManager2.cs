@@ -407,89 +407,97 @@ public class DiceManager2 : MonoBehaviour {
                 startPos = Input.GetTouch(0).position;
                 //startPos2 = Input.GetTouch(1).position;
             }
+
             //swipe ended
-            if (Input.touchCount>1)
+            //Comment: 08/04/2019 --> We changed changing boards from swipe to button pressing
+            if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Ended && sellectedDice == null)
+
+                //MODULAR FUERZA DEL SWIPE
+                if ((Vector2.Distance(startPos, Input.GetTouch(0).position) > 5)|| (Vector2.Distance(startPos2, Input.GetTouch(1).position) > 5))
                 {
-
-                    //MODULAR FUERZA DEL SWIPE
-                    if ((Vector2.Distance(startPos, Input.GetTouch(0).position) > 5)|| (Vector2.Distance(startPos2, Input.GetTouch(1).position) > 5))
+                    //REVISAR LA DIRECCION DEL SWIPE
+                    //DERECHA: "-->" 
+                    if (startPos.x < Input.GetTouch(0).position.x)
                     {
-                        //REVISAR LA DIRECCION DEL SWIPE
-                        //DERECHA: "-->" 
-                        if (startPos.x < Input.GetTouch(0).position.x)
-                        {
-
-                            if (trayindex > 0)
-                            {
-                                //MOVIMIENTO DE TRAYS
-                                trayindex = trayindex - 1;
-                                currentTray = trays[trayindex];
-                                cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                                //ELIMINACION DE TRAYS
-                                //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
-
-                                if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
-                                {
-                                    //Eliminar el tray de la derecha
-                                    Destroy(trays[trayindex + 1]);
-                                    trays.RemoveAt(trayindex + 1);
-                                    UpdateLocations(trayindex + 1);
-                                    print("Removed");
-                                    Destroy(tracker[trayindex]);
-                                    tracker.RemoveAt(trayindex);
-
-                                }
-                                currentTracker.transform.localScale = new Vector3(1, 1, 1);
-                                currentTracker = tracker[trayindex];
-                                currentTracker.transform.localScale = trackerScale;
-                                //
-                            }
+                        print("swipe right");
+                        if(displayShown){
+                            TogglePicker(); 
                         }
-                        else
-                        {
-                            //IZQUIERDa: "<--"
-                            //Revisar si existe tray adelante de la lista
-                            if (trayindex < 19)
-                            {
+                        
+                        // if (trayindex > 0)
+                        // {
+                        //     //MOVIMIENTO DE TRAYS
+                        //     trayindex = trayindex - 1;
+                        //     currentTray = trays[trayindex];
+                        //     cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+                        //     //ELIMINACION DE TRAYS
+                        //     //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
 
-                                //MOVIMIENTO Y CREACION DE TRAYS
-                                trayindex = trayindex + 1;
-                                if (trayindex > (trays.Count - 1))
-                                {
-                                    //Crear el objeto, moverse al objeto recien creado
-                                    GameObject newBoard = Instantiate(trayfab);
-                                    GameObject newTracker = Instantiate(trackerPoint);
-                                    tracker.Add(newTracker);
-                                    newTracker.transform.SetParent(trackerParent.transform);
-                                    newBoard.transform.position = locations[trayindex];
-                                    trays.Add(newBoard);
-                                    currentTracker.transform.localScale = new Vector3(1, 1, 1);
-                                    currentTracker = tracker[trayindex];
-                                    currentTracker.transform.localScale = trackerScale;
-                                }
+                        //     if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
+                        //     {
+                        //         //Eliminar el tray de la derecha
+                        //         Destroy(trays[trayindex + 1]);
+                        //         trays.RemoveAt(trayindex + 1);
+                        //         UpdateLocations(trayindex + 1);
+                        //         print("Removed");
+                        //         Destroy(tracker[trayindex]);
+                        //         tracker.RemoveAt(trayindex);
 
-                                //ELIMINACION DE TRAYS
-                                //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
-                                if (trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
-                                {
-                                    trayindex = trayindex - 1;
-                                    Destroy(trays[trayindex]);
-                                    trays.RemoveAt(trayindex);
-                                    UpdateLocations(trayindex);
-                                    print("Removed");
-                                    Destroy(tracker[trayindex]);
-                                    tracker.RemoveAt(trayindex);
-                                }
-
-                                currentTray = trays[trayindex];
-                                currentTracker.transform.localScale = new Vector3(1, 1, 1);
-                                currentTracker = tracker[trayindex];
-                                currentTracker.transform.localScale = trackerScale;
-                                cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                            }
+                        //     }
+                        //     currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                        //     currentTracker = tracker[trayindex];
+                        //     currentTracker.transform.localScale = trackerScale;
+                        //     //
+                        // }
+                    }
+                    else
+                    {
+                        print("Swipe left");
+                        if(!displayShown){
+                            TogglePicker(); 
                         }
+                        
+                        //IZQUIERDa: "<--"
+                        //Revisar si existe tray adelante de la lista
+                        // if (trayindex < 19)
+                        // {
+
+                        //     //MOVIMIENTO Y CREACION DE TRAYS
+                        //     trayindex = trayindex + 1;
+                        //     if (trayindex > (trays.Count - 1))
+                        //     {
+                        //         //Crear el objeto, moverse al objeto recien creado
+                        //         GameObject newBoard = Instantiate(trayfab);
+                        //         GameObject newTracker = Instantiate(trackerPoint);
+                        //         tracker.Add(newTracker);
+                        //         newTracker.transform.SetParent(trackerParent.transform);
+                        //         newBoard.transform.position = locations[trayindex];
+                        //         trays.Add(newBoard);
+                        //         currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                        //         currentTracker = tracker[trayindex];
+                        //         currentTracker.transform.localScale = trackerScale;
+                        //     }
+
+                        //     //ELIMINACION DE TRAYS
+                        //     //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+                        //     if (trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
+                        //     {
+                        //         trayindex = trayindex - 1;
+                        //         Destroy(trays[trayindex]);
+                        //         trays.RemoveAt(trayindex);
+                        //         UpdateLocations(trayindex);
+                        //         print("Removed");
+                        //         Destroy(tracker[trayindex]);
+                        //         tracker.RemoveAt(trayindex);
+                        //     }
+
+                        //     currentTray = trays[trayindex];
+                        //     currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                        //     currentTracker = tracker[trayindex];
+                        //     currentTracker.transform.localScale = trackerScale;
+                        //     cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+                        // }
                     }
                 }
             }
