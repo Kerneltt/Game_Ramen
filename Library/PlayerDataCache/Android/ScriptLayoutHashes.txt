@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-D:/Desktop/Unity Proyects/GameRamen/builds/android/gameramen.apk
+E:/Relato/PizzaNGames/Builds/GameRamen/Anndroid/GameRamen.apk
 SceneListBegin?
 Assets/Scenes/DiceRollerv3.unity
 SceneListEnd?
@@ -209,3 +209,5 @@ ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 530991ee45f77b2e7b19d68c1361cadf Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
+7a294f5977d8a2805b86cba077e2a62c Assembly-CSharp.dll:.ColorMyDice
+0e6f910123755ed538f1970226daa5bb Assembly-CSharp.dll:.FPSDisplay
