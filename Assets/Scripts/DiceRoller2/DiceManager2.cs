@@ -181,8 +181,15 @@ public class DiceManager2 : MonoBehaviour {
         int end = trays.Count;
         for (int i = startIndex; i < end; i++)
         {
-            trays[i].transform.position = locations[i];  
+
+            foreach (Dice dice in trays[i].GetComponentsInChildren<Dice>())
+            {
+                Destroy(dice.GetComponent<Rigidbody>());                
+            }
+            trays[i].transform.position = locations[i];
         }
+
+        
 
     }
     public void SpawnDice(int dice)
@@ -202,7 +209,7 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice = newdice;
             touchTimeStart = Time.time;
             startPosF = Input.GetTouch(0).position;
-            rb = sellectedDice.GetComponent<Rigidbody>();
+            rb = sellectedDice.GetComponentInChildren<Rigidbody>();
             sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
             sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
             sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -253,7 +260,7 @@ public class DiceManager2 : MonoBehaviour {
                 {
                     dice.UnlockDice();
                 }
-               // print("Unlockall");
+                print("Unlockall");
             }
         }
         //Troww all dice
@@ -385,9 +392,9 @@ public class DiceManager2 : MonoBehaviour {
             {
                 if (Vector2.Distance(startPos,Input.GetTouch(0).position)>50)
                 {
-                    sellectedDice.GetComponent<Dice>().Setkillable(true);
-                    sellectedDice.GetComponent<Dice>().UnlockDice();
-                    sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    sellectedDice.GetComponentInChildren<Dice>().Setkillable(true);
+                    sellectedDice.GetComponentInChildren<Dice>().UnlockDice();
+                    sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     float fixz = (((Input.GetTouch(0).position.y * 100) / Screen.height) * (Mathf.Sin(Mathf.Deg2Rad * 60))/10);
                     sellectedDice.transform.position = (Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10+fixz)));
                 }                
@@ -490,23 +497,23 @@ public class DiceManager2 : MonoBehaviour {
             //let the sellected dice go
             if (Input.GetTouch(0).phase==TouchPhase.Ended && sellectedDice!=null)
             {                
-                sellectedDice.GetComponent<Dice>().Setkillable(false);
-                if (sellectedDice.GetComponent<Dice>().locked==false)
+                sellectedDice.GetComponentInChildren<Dice>().Setkillable(false);
+                if (sellectedDice.GetComponentInChildren<Dice>().locked==false)
                 {
-                    sellectedDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                    if (sellectedDice.GetComponent<Dice>().getIsCoin())
+                    sellectedDice.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    if (sellectedDice.GetComponentInChildren<Dice>().getIsCoin())
                     {
                         switch (Random.Range(0, 2))
                         {
                             case 0:
 
-                                sellectedDice.GetComponent<Animator>().Play("Rotate_1", -1, 0f);
+                                sellectedDice.GetComponentInChildren<Animator>().Play("Rotate_1", -1, 0f);
                                 print("0");
                                 //GetComponent<Animator>().SetBool("repeat", false);
                                 break;
 
                             case 1:
-                                sellectedDice.GetComponent<Animator>().Play("Rotate_2", -1, 0f);
+                                sellectedDice.GetComponentInChildren<Animator>().Play("Rotate_2", -1, 0f);
                                 print("1");
                                 //GetComponent<Animator>().SetBool("repeat", false);
                                 break;
@@ -540,6 +547,7 @@ public class DiceManager2 : MonoBehaviour {
     }
     public void TrayLeft()
     {
+        CancelTap();
         if (trayindex > 0)
         {
             //MOVIMIENTO DE TRAYS
@@ -583,6 +591,7 @@ public class DiceManager2 : MonoBehaviour {
 
     public void TrayRight()
     {
+        CancelTap();
         if (trayindex < 19)
         {
 

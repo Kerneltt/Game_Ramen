@@ -32,6 +32,14 @@ public class DontGoThroughThings : MonoBehaviour
     void FixedUpdate()
     {
         //have we moved more than our minimum extent? 
+        if (GetComponent<Rigidbody>()!=null && myRigidbody!=null)
+        {
+            myRigidbody = GetComponent<Rigidbody>();
+        }
+        else
+        {
+            return;
+        }
         Vector3 movementThisStep = myRigidbody.position - previousPosition;
         float movementSqrMagnitude = movementThisStep.sqrMagnitude;
 
