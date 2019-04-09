@@ -2,7 +2,7 @@ Android
 PlayerPath?
 E:/Relato/PizzaNGames/Builds/GameRamen/Anndroid/GameRamen.apk
 SceneListBegin?
-Assets/Scenes/DiceRollerv4.unity
+Assets/Scenes/DiceRollerv5.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
