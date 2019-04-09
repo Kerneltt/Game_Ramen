@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\DiceRoller2\ColorMyDice.cs" />
     <Compile Include="Assets\Scripts\DiceRoller2\DiceManager2.cs" />
     <Compile Include="Assets\Scripts\DiceRoller2\DontGoThroughThings.cs" />
+    <Compile Include="Assets\Scripts\DiceRoller2\FPS_Toggle.cs" />
     <Compile Include="Assets\Scripts\DiceRoller2\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\DiceTester.cs" />
     <Compile Include="Assets\Scripts\DiceTools.cs" />

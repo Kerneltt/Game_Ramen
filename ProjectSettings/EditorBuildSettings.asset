@@ -23,7 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DiceRollerv2.unity
     guid: 5ab777e9a85b94c459b62815d687d515
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DiceRollerv3.unity
     guid: 9eb6efe117a7d4185b50dc17be6b0b92
+  - enabled: 1
+    path: Assets/Scenes/DiceRollerv4.unity
+    guid: 3fbad8a072c2f5c4e95edce172c350d8
   m_configObjects: {}

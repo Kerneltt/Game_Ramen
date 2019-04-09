@@ -64,9 +64,9 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     GameObject infoFader;
     private Animator infoAnim;
-    [SerializeField]
-    GameObject sideSweepArea;
-    private Animator sidesweepAnim;
+    //[SerializeField]
+    //GameObject sideSweepArea;
+    //private Animator sidesweepAnim;
     [SerializeField]
     GameObject trayButtonL;
     [SerializeField]
@@ -77,7 +77,7 @@ public class DiceManager2 : MonoBehaviour {
     {
         menuAnim = menuFader.GetComponent<Animator>();
         infoAnim = infoFader.GetComponent<Animator>();
-        sidesweepAnim = sideSweepArea.GetComponent<Animator>();
+        //sidesweepAnim = sideSweepArea.GetComponent<Animator>();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
@@ -89,7 +89,7 @@ public class DiceManager2 : MonoBehaviour {
         }   
         displayShown = false;
         trackerScale = new Vector3(1 * scaleMultiplier, 1 * scaleMultiplier, 1 * scaleMultiplier);
-        menuAnim.SetTrigger("Start"); infoAnim.SetTrigger("Start"); sidesweepAnim.SetTrigger("Start");
+        menuAnim.SetTrigger("Start"); infoAnim.SetTrigger("Start"); //sidesweepAnim.SetTrigger("Start");
         dicepicker.GetComponent<Animator>().Play("DicePickerStart");
         diceColor = Color.white;
         currentTray = trays[0];
@@ -115,9 +115,9 @@ public class DiceManager2 : MonoBehaviour {
             infoAnim.ResetTrigger("Hide");
             infoAnim.SetTrigger("Show");
             // Enable border sweep areas
-            sidesweepAnim.ResetTrigger("Start");
-            sidesweepAnim.ResetTrigger("Hide");
-            sidesweepAnim.SetTrigger("Show");
+            //sidesweepAnim.ResetTrigger("Start");
+            //sidesweepAnim.ResetTrigger("Hide");
+            //sidesweepAnim.SetTrigger("Show");
         }
         else
         {
@@ -130,8 +130,8 @@ public class DiceManager2 : MonoBehaviour {
             infoAnim.ResetTrigger("Show");
             infoAnim.SetTrigger("Hide");
             // Disable boder sweep areas
-            sidesweepAnim.ResetTrigger("Show");
-            sidesweepAnim.SetTrigger("Hide");
+            //sidesweepAnim.ResetTrigger("Show");
+            //sidesweepAnim.SetTrigger("Hide");
         }
     }
 
