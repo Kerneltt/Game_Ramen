@@ -422,7 +422,7 @@ public class DiceManager2 : MonoBehaviour {
                     {
                         print("swipe right");
                         if(displayShown){
-                            TogglePicker(); 
+                            //TogglePicker(); 
                         }
                         
                         // if (trayindex > 0)
@@ -455,7 +455,7 @@ public class DiceManager2 : MonoBehaviour {
                     {
                         print("Swipe left");
                         if(!displayShown){
-                            TogglePicker(); 
+                            //TogglePicker(); 
                         }
                         
                         //IZQUIERDa: "<--"
