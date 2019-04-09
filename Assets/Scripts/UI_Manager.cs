@@ -36,11 +36,11 @@ public class UI_Manager : MonoBehaviour
 
         if (screenHeight == iPhoneX_Height || screenHeight == iPhoneXR_Height || screenHeight == iPhoneXSMAX_Height)
         {
-            vertLayout.padding.left = 20;
+            vertLayout.padding.left = 14;
         }
         else
         {
-            vertLayout.padding.left = 20;
+            vertLayout.padding.left = 22;
             vertLayout.padding.right = 5;
         }
         Canvas.ForceUpdateCanvases();

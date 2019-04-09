@@ -1,8 +1,8 @@
 iOS
 PlayerPath?
-/Users/mediamanagers/Desktop/Builds/NewOnes/GameRamen
+/Users/mediamanagers/Desktop/Builds/Presentacion/GameRamen
 SceneListBegin?
-Assets/Scenes/DiceRollerv4.unity
+Assets/Scenes/DiceRollerv5.unity
 SceneListEnd?
 a1f19ad47d3094e235f21b74dfc423a8 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
@@ -156,6 +156,7 @@ a53651ee3996fbba20dfe0fce02f0b23 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 df0f5fcfe1073c0aae5d73e0d3ea7642 Assembly-CSharp.dll:.ResourceList
 e7fa2d600dd0624fdf6d348bfe4bef18 Assembly-CSharp.dll:.DiceTester
 9a5700c81f605d77c9f5983a56a10388 Assembly-CSharp.dll:.TotalsManager
+8668acc3c087e23e98e67462dc21b96b Assembly-CSharp.dll:.FPS_Toggle
 b73a1a8821c1d641f2f038239ea62316 Assembly-CSharp.dll:.MultiplierManager
 f050e4ebd311386367bb1906f9218b01 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LWRPAdditionalLightData
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -192,7 +193,7 @@ c69e10d82263d95eba11560757139ceb Unity.RenderPipelines.Lightweight.Runtime.dll:U
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
-bb73c4aee4b6e074c77c97a9e3fc4609 Assembly-CSharp.dll:.UI_Manager
+8f1aa87072b7a1b9e963145c943cb7f0 Assembly-CSharp.dll:.UI_Manager
 b9c6f7358c6c4a116c264d7c7f6f08b1 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineEditorResources
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScoreShow
 71238ecd94a9a900f66e11edec285929 Assembly-CSharp.dll:.DontGoThroughThings
@@ -211,4 +212,3 @@ ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 f8713c280ff7d4f4f8f944b63b012dfd Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
-8668acc3c087e23e98e67462dc21b96b Assembly-CSharp.dll:.FPS_Toggle
