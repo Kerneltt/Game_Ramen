@@ -212,3 +212,4 @@ ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 f8713c280ff7d4f4f8f944b63b012dfd Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.OpenSurveyLink
