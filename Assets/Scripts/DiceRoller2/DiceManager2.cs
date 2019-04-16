@@ -53,7 +53,9 @@ public class DiceManager2 : MonoBehaviour {
     //[SerializeField]
     //Color currentTrackerColor = Color.white;
     [SerializeField]
-    float scaleMultiplier = 2.5f;
+    float scaleMultiplier = 4f;
+    [SerializeField]
+    Color trackerColor;
     Vector3 trackerScale = new Vector3(1, 1, 1);
     bool displayShown;
     [SerializeField]
@@ -88,7 +90,7 @@ public class DiceManager2 : MonoBehaviour {
             locations.Add(v);  
         }   
         displayShown = false;
-        trackerScale = new Vector3(1 * scaleMultiplier, 1 * scaleMultiplier, 1 * scaleMultiplier);
+        trackerScale = new Vector3(1.5f * scaleMultiplier, 1.5f * scaleMultiplier, 1.5f * scaleMultiplier);
         menuAnim.SetTrigger("Start"); infoAnim.SetTrigger("Start"); //sidesweepAnim.SetTrigger("Start");
         dicepicker.GetComponent<Animator>().Play("DicePickerStart");
         diceColor = Color.white;
@@ -558,13 +560,14 @@ public class DiceManager2 : MonoBehaviour {
         CancelTap();
         if (trayindex > 0)
         {
+            print("Movingyall");
             //MOVIMIENTO DE TRAYS
             trayindex = trayindex - 1;
             currentTray = trays[trayindex];
             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
             //ELIMINACION DE TRAYS
             //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
-
+            /*
             if (trays[trayindex + 1].GetComponentsInChildren<Dice>().Length < 1)
             {
                 //Eliminar el tray de la derecha
@@ -576,9 +579,12 @@ public class DiceManager2 : MonoBehaviour {
                 tracker.RemoveAt(trayindex);
 
             }
+            */
             currentTracker.transform.localScale = new Vector3(1, 1, 1);
+            currentTracker.GetComponent<Image>().color = Color.white;
             currentTracker = tracker[trayindex];
             currentTracker.transform.localScale = trackerScale;
+            currentTracker.GetComponent<Image>().color = trackerColor;
 
             if (trays.Count == 1)
             {
@@ -599,8 +605,9 @@ public class DiceManager2 : MonoBehaviour {
 
     public void TrayRight()
     {
+        print("MovingyaRR");
         CancelTap();
-        if (trayindex < 19)
+        if (trayindex < 2)
         {
 
             //MOVIMIENTO Y CREACION DE TRAYS
@@ -608,19 +615,20 @@ public class DiceManager2 : MonoBehaviour {
             if (trayindex > (trays.Count - 1))
             {
                 //Crear el objeto, moverse al objeto recien creado
-                GameObject newBoard = Instantiate(trayfab);
-                GameObject newTracker = Instantiate(trackerPoint);
-                tracker.Add(newTracker);
-                newTracker.transform.SetParent(trackerParent.transform);
-                newBoard.transform.position = locations[trayindex];
-                trays.Add(newBoard);
-                currentTracker.transform.localScale = new Vector3(1, 1, 1);
-                currentTracker = tracker[trayindex];
-                currentTracker.transform.localScale = trackerScale;
+                //GameObject newBoard = Instantiate(trayfab);
+                //GameObject newTracker = Instantiate(trackerPoint);
+                //tracker.Add(newTracker);
+                //newTracker.transform.SetParent(trackerParent.transform);
+                //newBoard.transform.position = locations[trayindex];
+                //trays.Add(newBoard);
+                //currentTracker.transform.localScale = new Vector3(1, 1, 1);
+                //currentTracker = tracker[trayindex];
+                //currentTracker.transform.localScale = trackerScale;
             }
 
             //ELIMINACION DE TRAYS
             //Revisar si el anterior tiene 0 dados. Si es asi, borrarlo. 
+            /*
             if (trays[trayindex - 1].GetComponentsInChildren<Dice>().Length < 1 && (trayindex - 1) > 0)
             {
                 trayindex = trayindex - 1;
@@ -631,23 +639,28 @@ public class DiceManager2 : MonoBehaviour {
                 Destroy(tracker[trayindex]);
                 tracker.RemoveAt(trayindex);
             }
-
+            */
             currentTray = trays[trayindex];
             currentTracker.transform.localScale = new Vector3(1, 1, 1);
+            currentTracker.GetComponent<Image>().color = Color.white;
             currentTracker = tracker[trayindex];
             currentTracker.transform.localScale = trackerScale;
+            currentTracker.GetComponent<Image>().color = trackerColor;
             cameraDirection = new Vector3(currentTray.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
-            if (trays.Count==20)
+            /*
+            if (trays.Count==3)
             {
                 trayButtonR.SetActive(false);
                 
             }
             else
+            */
             {
+            
                 trayButtonR.SetActive(true);
                 trayButtonL.SetActive(true);
             }
-            if (trayindex == 19)
+            if (trayindex == 2)
             {
                 trayButtonR.SetActive(false);
             }
