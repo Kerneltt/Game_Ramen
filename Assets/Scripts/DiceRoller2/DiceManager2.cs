@@ -73,6 +73,8 @@ public class DiceManager2 : MonoBehaviour {
     GameObject trayButtonL;
     [SerializeField]
     GameObject trayButtonR;
+    [SerializeField]
+    Material[] backgrounds;
     // Use this for initialization
 
     private void Awake()
@@ -100,7 +102,11 @@ public class DiceManager2 : MonoBehaviour {
         currentTracker = tracker[0];
         collorPointer.GetComponent<Image>().color = Color.grey;
     }
-
+    public void ChangeBG(int index)
+    {
+        print("BG changed");
+        currentTray.GetComponentInChildren<MeshRenderer>().material = backgrounds[index];
+    }
     public void TogglePicker()
     {
         CancelTap();
