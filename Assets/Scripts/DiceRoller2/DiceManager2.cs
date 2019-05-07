@@ -81,6 +81,10 @@ public class DiceManager2 : MonoBehaviour {
     Color[] solid_BG_Color;
     [SerializeField]
     GameObject displayBG_Preview;
+    [SerializeField]
+    Material[] DiceMaterials;
+    [SerializeField]
+    Material currentMaterial;
     // Use this for initialization
 
     private void Awake()
@@ -227,6 +231,7 @@ public class DiceManager2 : MonoBehaviour {
             //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             if (newdice.GetComponentInChildren<Dice>().getIsCoin()==false)
             {
+                newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
                 newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
             }            
             newdice.transform.SetParent(currentTray.transform);
@@ -244,6 +249,12 @@ public class DiceManager2 : MonoBehaviour {
             sellectedDice.transform.position = screenpoint;
         }
     }
+
+    public void SetCurrentMaterial(int index)
+    {
+        currentMaterial = DiceMaterials[index];
+    }
+
     /*
         public void FixedUpdate(){        
             float smoothSpeed = 0.125f; 
