@@ -8,7 +8,11 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     float force = 100;
     [SerializeField]
-    GameObject[] die;
+    GameObject[] dieNormal;
+    [SerializeField]
+    GameObject[] dieMarble;
+    [SerializeField]
+    GameObject[] profile;
     [SerializeField]
     LayerMask mask;
     [SerializeField]
@@ -96,6 +100,7 @@ public class DiceManager2 : MonoBehaviour {
     }
 
     void Start () {
+        profile = dieNormal;
         for (int i = 0; i < 20; i++){
             float newx = i * 22f;
             Vector3 v = new Vector3(newx, 0, 0);
@@ -227,12 +232,30 @@ public class DiceManager2 : MonoBehaviour {
         if (currentTray.GetComponentsInChildren<Dice>().Length < 20)
         {
             //print("creatingDice");
-            GameObject newdice = Instantiate(die[dice]);
+            GameObject newdice = Instantiate(profile[dice]);
             //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             if (newdice.GetComponentInChildren<Dice>().getIsCoin()==false)
             {
-                newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
-                newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                if (profile==dieMarble)
+                {
+                    foreach (MeshRenderer child in newdice.GetComponentsInChildren<MeshRenderer>())
+                    {
+                        if (child.tag == "Marble")
+                        {
+                            print(child);
+                            print(child.GetComponent<Renderer>().material.GetColor("Color_F8C5F50"));
+                            child.GetComponent<Renderer>().material.SetColor("Color_F8C5F50", diceColor);
+                            
+                        }
+                            
+                    }
+                }
+                else
+                {
+                    newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
+                    newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                }
+                
             }            
             newdice.transform.SetParent(currentTray.transform);
             newdice.transform.localPosition = new Vector3(0, 5, 0);
@@ -254,7 +277,20 @@ public class DiceManager2 : MonoBehaviour {
     {
         currentMaterial = DiceMaterials[index];
     }
-
+    public void SetProfile(string profileName)
+    {
+        switch (profileName)
+        {
+            case "Normal":
+                profile = dieNormal;
+                break;
+            case "Marble":
+                profile = dieMarble;
+                break;
+            default:
+                break;
+        }
+    }
     /*
         public void FixedUpdate(){        
             float smoothSpeed = 0.125f; 

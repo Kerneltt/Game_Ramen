@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: c2eb083c69f388f47a4c119a72d415cf, type: 3}
+      propertyPath: m_TagString
+      value: Marble
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: c2eb083c69f388f47a4c119a72d415cf, type: 3}
       propertyPath: m_Layer
       value: 9

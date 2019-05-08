@@ -2512,6 +2512,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: SetProfile
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Marble
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &316179447
@@ -4417,7 +4428,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 30.010437
+  field of view: 30.060175
   orthographic: 1
   orthographic size: 11.16
   m_Depth: -1
@@ -8290,6 +8301,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: SetProfile
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Normal
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &979691227
@@ -11041,6 +11063,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1453620842}
+        m_MethodName: SetProfile
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Normal
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1275856502
@@ -11688,7 +11721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 75
-  die:
+  dieNormal:
   - {fileID: 5019508102752295416, guid: 4861cf96a01598542b228a86e6fc6352, type: 3}
   - {fileID: 1515581173618442, guid: b410d583f3f28804fae707bedf0d955d, type: 3}
   - {fileID: 1382893643756252, guid: 6f2f71958767bf04497104aa4ed6d963, type: 3}
@@ -11697,6 +11730,16 @@ MonoBehaviour:
   - {fileID: 1662798089029302, guid: 6c03203032d2be14b8c4b9f95f4d3cf3, type: 3}
   - {fileID: 1987458997762462, guid: e656f3032b0d1524e909606ce6b4a382, type: 3}
   - {fileID: 1193880560521688, guid: 5fbb18c78bd9ca6458e592890df1bdfb, type: 3}
+  dieMarble:
+  - {fileID: 5019508102752295416, guid: 4861cf96a01598542b228a86e6fc6352, type: 3}
+  - {fileID: 1515581173618442, guid: 0da09be145e1d334093483e73c5b86e8, type: 3}
+  - {fileID: 1382893643756252, guid: c4e1256251588d14c8806f493d38fd05, type: 3}
+  - {fileID: 1340961210858300, guid: ff43a5b1bed7dcb46907454871f70734, type: 3}
+  - {fileID: 1659964749939474, guid: d8028f139ae01e0428e1b4dd75972016, type: 3}
+  - {fileID: 1662798089029302, guid: 26b1ec036f774314fadb9d9349925cfa, type: 3}
+  - {fileID: 1987458997762462, guid: 84074afdcc768e841a61c84c0d8a3d6d, type: 3}
+  - {fileID: 1193880560521688, guid: 1575a87d7ba49b046abd01c0dffdc0f5, type: 3}
+  profile: []
   mask:
     serializedVersion: 2
     m_Bits: 512
