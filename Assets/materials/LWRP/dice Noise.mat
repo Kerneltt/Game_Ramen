@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: dice Noise
-  m_Shader: {fileID: 4800000, guid: 94b74cb1717fcbb438afe043fa7a32cd, type: 3}
+  m_Shader: {fileID: 4800000, guid: ee07952866d84f545b67b84df2432d10, type: 3}
   m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_19A125DC:
+        m_Texture: {fileID: 2800000, guid: 2128def69e6c9c84da9ed4382736e0d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_8AA48FD5:
         m_Texture: {fileID: 2800000, guid: c6a7d47cc2a20594c9bf96385166314b, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -66,13 +70,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_29D26BFF: 0.5
-    - Vector1_47475524: 3.33
-    - Vector1_5D0B3F80: 7.5
+    - Vector1_47475524: 6.7
+    - Vector1_5D0B3F80: 15
     - Vector1_737A8C75: 0.25
     - Vector1_75BF7F5D: 0.8
-    - Vector1_7D8FD569: 6
+    - Vector1_7D8FD569: 12
     - Vector1_88D89A2: 0.65
-    - Vector1_8E14F9D: 0.8
+    - Vector1_8E14F9D: 0
     - Vector1_BD0B88A7: 0.7
     - Vector1_BF1FB8AF: 0.8
     - Vector1_E5E36792: 0
@@ -113,6 +117,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_45C96FA: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}
     - Color_CE4EF4C9: {r: 0.8113208, g: 0.6787297, b: 0, a: 1}
     - Color_F8C5F50: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
