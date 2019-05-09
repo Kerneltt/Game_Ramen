@@ -416,6 +416,11 @@ public class DiceManager2 : MonoBehaviour {
                     {
                         //lock/unlock dice
                         startPos = Input.GetTouch(0).position;
+                        if (raycastHit.collider.gameObject.GetComponent<Dice>().getIsCoin())
+                        {
+                            print("coinHit");
+                            raycastHit.collider.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
                         if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
                         {
                             raycastHit.collider.gameObject.GetComponent<Dice>().UnlockDice();

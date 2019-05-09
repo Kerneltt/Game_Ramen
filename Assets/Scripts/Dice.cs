@@ -70,6 +70,27 @@ public class Dice : MonoBehaviour
     }
 
     public void RollDice() {
+        if (isCoin)
+        {
+            //GetComponent<Animator>().Play("none");
+            switch (Random.Range(0, 2))
+            {
+                case 0:
+
+                    GetComponent<Animator>().Play("Rotate_1", -1, 0f);
+                    print("0");
+                    //GetComponent<Animator>().SetBool("repeat", false);
+                    break;
+
+                case 1:
+                    GetComponent<Animator>().Play("Rotate_2", -1, 0f);
+                    print("1");
+                    //GetComponent<Animator>().SetBool("repeat", false);
+                    break;                    
+            }
+            rolling = false;
+            return;
+        }
         if (locked )
                 return;
         if (rolling)
@@ -79,25 +100,7 @@ public class Dice : MonoBehaviour
         }
         else
         {
-            if (isCoin)
-            {
-                //GetComponent<Animator>().Play("none");
-                switch (Random.Range(0, 2))
-                {
-                    case 0:
-
-                        GetComponent<Animator>().Play("Rotate_1", -1, 0f);
-                        print("0");
-                        //GetComponent<Animator>().SetBool("repeat", false);
-                        break;
-
-                    case 1:
-                        GetComponent<Animator>().Play("Rotate_2", -1, 0f);
-                        print("1");
-                        //GetComponent<Animator>().SetBool("repeat", false);
-                        break;
-                }
-            }
+            
             //print("rolling");
             rolling = true;
             Invoke("StartDetecting", 2f);
