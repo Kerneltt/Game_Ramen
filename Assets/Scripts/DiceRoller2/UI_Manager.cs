@@ -29,14 +29,28 @@ public class UI_Manager : MonoBehaviour
     private int iPhone5_Height = 1136;
     private int iPhone6_Height = 1334;
 
+    [SerializeField]
+    GameObject[] walsLeft;
+    [SerializeField]
+    GameObject[] walsRight;
     private void Start()
     {
         currentLeftPadding = vertLayout.padding.left;
         screenHeight = Screen.height;
-
+        Vector3 newpos;
         if (screenHeight == iPhoneX_Height || screenHeight == iPhoneXR_Height || screenHeight == iPhoneXSMAX_Height)
         {
             vertLayout.padding.left = 14;
+            foreach (GameObject wall in walsLeft)
+            {
+                newpos =new Vector3(wall.transform.position.x+0.5f, wall.transform.position.y, wall.transform.position.z);
+                wall.transform.position = newpos;
+            }
+            foreach (GameObject wall in walsRight)
+            {
+                newpos = new Vector3(wall.transform.position.x - 0.5f, wall.transform.position.y, wall.transform.position.z);
+                wall.transform.position = newpos;
+            }
         }
         else
         {
