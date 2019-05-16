@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ae9ba8107cf253844a6f68ceecb08dee, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -94,12 +94,12 @@ Material:
     - _DstBlend: 0
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
-    - _GlossMapScale: 0.693
+    - _GlossMapScale: 0.494
     - _Glossiness: 0.797
     - _GlossinessSource: 1
     - _GlossyReflections: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.935
+    - _Metallic: 0.934
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -122,6 +122,6 @@ Material:
     - Color_F8C5F50: {r: 0.1034621, g: 0.7075472, b: 0.3450962, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
