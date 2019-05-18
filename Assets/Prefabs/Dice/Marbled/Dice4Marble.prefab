@@ -348,6 +348,7 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 6828998446766262153}
+  endParticle: {fileID: 0}
 --- !u!114 &1153963011335535227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +430,8 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 6828998446766262153}
+  endParticle: {fileID: 7298865910185843932, guid: 590d7541a37a75f419783f513220daff,
+    type: 3}
 --- !u!1001 &4142023858636396746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -683,13 +686,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 015be7adaba1bd14aba76ef4cca2767b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0fb13ae70a465a74db96d825c6450676, type: 2}
     - target: {fileID: 2300002, guid: 015be7adaba1bd14aba76ef4cca2767b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 745b01cad7d8d4f44ace1657a45d6891, type: 2}
+    - target: {fileID: 2300000, guid: 015be7adaba1bd14aba76ef4cca2767b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0fb13ae70a465a74db96d825c6450676, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015be7adaba1bd14aba76ef4cca2767b, type: 3}

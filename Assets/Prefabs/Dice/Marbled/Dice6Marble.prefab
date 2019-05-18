@@ -249,6 +249,7 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 8066214413164820927}
+  endParticle: {fileID: 0}
 --- !u!114 &5798568084760552594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +430,8 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 8066214413164820927}
+  endParticle: {fileID: 7298865910185843932, guid: 590d7541a37a75f419783f513220daff,
+    type: 3}
 --- !u!1001 &598669115457447676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +525,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4748276665605026}
     m_Modifications:
+    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
+      propertyPath: m_Name
+      value: Dado6_Col
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
+      propertyPath: m_TagString
+      value: Dice
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -577,18 +592,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
-      propertyPath: m_Name
-      value: Dado6_Col
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
-      propertyPath: m_TagString
-      value: Dice
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ebacda0f621d6fd4a9d645d9060ec268, type: 3}
       propertyPath: m_Enabled

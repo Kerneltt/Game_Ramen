@@ -83,6 +83,8 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 1
   imageLock: {fileID: 2456420167802455076}
+  endParticle: {fileID: 7298865910185843932, guid: 590d7541a37a75f419783f513220daff,
+    type: 3}
 --- !u!1 &5019508102752295416
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,11 @@ public class Dice : MonoBehaviour
     bool isCoin = false;
     [SerializeField]
     GameObject imageLock;
+    [SerializeField]
+    ParticleSystem endParticle;
+
     float maxVelocity = 30;
+
     void Start() {
         myRG = GetComponent<Rigidbody>();
 
@@ -176,9 +180,11 @@ public class Dice : MonoBehaviour
 
     public void RemoveDice()
     {
+
         diceTester.RemoveDice(transform.root.gameObject);
         diceTester.ReorderAll();
         Destroy(transform.root.gameObject);
+
     }
     /*
     private void OnCollisionEnter(Collision collision)
@@ -194,6 +200,7 @@ public class Dice : MonoBehaviour
     {
         if (other.gameObject.tag == "Killwall" && killable)
         {
+            PlayParticle();
             print("death");
             Destroy(this.transform.parent.gameObject);
         }
@@ -201,4 +208,13 @@ public class Dice : MonoBehaviour
 
     public bool  getIsCoin()
     { return isCoin; }
+
+    public void PlayParticle()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            ParticleSystem newpart = Instantiate(endParticle);
+            newpart.transform.position = gameObject.transform.position;
+        }
+    }
 }

@@ -173,6 +173,7 @@ public class DiceManager2 : MonoBehaviour {
     {
         foreach (Dice dice in currentTray.GetComponentsInChildren<Dice>())
         {
+            dice.PlayParticle();
             Destroy(dice.gameObject.transform.parent.gameObject);
         }
     }

@@ -43,12 +43,12 @@ public class UI_Manager : MonoBehaviour
             vertLayout.padding.left = 14;
             foreach (GameObject wall in walsLeft)
             {
-                newpos =new Vector3(wall.transform.position.x+0.5f, wall.transform.position.y, wall.transform.position.z);
+                newpos =new Vector3(wall.transform.position.x+1f, wall.transform.position.y, wall.transform.position.z);
                 wall.transform.position = newpos;
             }
             foreach (GameObject wall in walsRight)
             {
-                newpos = new Vector3(wall.transform.position.x - 0.5f, wall.transform.position.y, wall.transform.position.z);
+                newpos = new Vector3(wall.transform.position.x - 1f, wall.transform.position.y, wall.transform.position.z);
                 wall.transform.position = newpos;
             }
         }

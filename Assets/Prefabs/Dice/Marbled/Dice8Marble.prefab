@@ -348,6 +348,7 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 7031345324168252158}
+  endParticle: {fileID: 0}
 --- !u!114 &3839821217535277700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +413,8 @@ MonoBehaviour:
   numberDysplay: {fileID: 0}
   isCoin: 0
   imageLock: {fileID: 0}
+  endParticle: {fileID: 7298865910185843932, guid: 590d7541a37a75f419783f513220daff,
+    type: 3}
 --- !u!114 &162680248748896632
 MonoBehaviour:
   m_ObjectHideFlags: 0
