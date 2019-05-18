@@ -90,6 +90,8 @@ public class DiceManager2 : MonoBehaviour {
     [SerializeField]
     Material currentMaterial;
     // Use this for initialization
+    [SerializeField]
+    Material D4_Material;
 
     private void Awake()
     {
@@ -253,8 +255,16 @@ public class DiceManager2 : MonoBehaviour {
                 }
                 else
                 {
-                    newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
-                    newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                    if(dice == 1)
+                    {
+                        newdice.GetComponentInChildren<Renderer>().material = D4_Material;
+                        newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                    }
+                    else
+                    {
+                        newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
+                        newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                    }
                 }
                 
             }            
