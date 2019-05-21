@@ -3293,7 +3293,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 277d30bf1a971d246b021e6709ffb80e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f6b4659094765743963feb4c5e6714e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5340,7 +5340,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 30
+  field of view: 30.02221
   orthographic: 1
   orthographic size: 11.16
   m_Depth: -1
@@ -14455,7 +14455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423469498}
   m_Layer: 0
-  m_Name: Light
+  m_Name: LightProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14715,8 +14715,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d94cd3992c46be146ad9e1987c77ec13, type: 2}
   - {fileID: 2100000, guid: 01c2c7abad8e54745b2140402621e557, type: 2}
   backgrounds_sprites:
-  - {fileID: 21300000, guid: bfda642cdf022bb42ac5f4d8149be19e, type: 3}
-  - {fileID: 21300000, guid: 277d30bf1a971d246b021e6709ffb80e, type: 3}
+  - {fileID: 21300000, guid: f24ac58c1bf46c7499ccc9ee1ea0e1b5, type: 3}
+  - {fileID: 21300000, guid: 4f6b4659094765743963feb4c5e6714e, type: 3}
   - {fileID: 21300000, guid: c9f60320453fe8948966b642ce68c601, type: 3}
   - {fileID: 21300012, guid: c6d5e9fea4d98784489bff48423a188b, type: 3}
   - {fileID: 21300000, guid: 525986ad5342b994b9fe487bdb555f8c, type: 3}
