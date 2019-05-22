@@ -5340,7 +5340,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 30.02221
+  field of view: 30.009447
   orthographic: 1
   orthographic size: 11.16
   m_Depth: -1
@@ -14732,7 +14732,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f7169fef41d65af4aa62a314850b94ef, type: 2}
   - {fileID: 2100000, guid: 5807d5726d2b42549ab6a5c93abaa9db, type: 2}
   currentMaterial: {fileID: 2100000, guid: b19a6cf6c276c434f82f04f3b4d63f73, type: 2}
-  D4_Material: {fileID: 2100000, guid: 958ec8ef0bbbd384eb0389504e74e370, type: 2}
+  dieColor:
+  - {r: 0.6862745, g: 0.17254902, b: 0.3647059, a: 1}
+  - {r: 0.94117653, g: 0.34509805, b: 0.14509805, a: 1}
+  - {r: 0.9725491, g: 0.6, b: 0.12941177, a: 1}
+  - {r: 0.9725491, g: 0.73333335, b: 0.08627451, a: 1}
+  - {r: 0.8980393, g: 0.8431373, b: 0.13333334, a: 1}
+  - {r: 0.39607847, g: 0.68235296, b: 0.27058825, a: 1}
+  - {r: 0.07450981, g: 0.5686275, b: 0.7960785, a: 1}
+  - {r: 0.24705884, g: 0.36078432, b: 0.6666667, a: 1}
+  - {r: 0.427451, g: 0.43137258, b: 0.4431373, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  diceTextDarkColor: {r: 0, g: 0, b: 0, a: 1}
+  diceTextLightColor: {r: 0.8301887, g: 0.53438693, b: 0.17621933, a: 1}
+  DiceColorIntensity: 0.2
 --- !u!4 &1453620843
 Transform:
   m_ObjectHideFlags: 0

@@ -91,7 +91,14 @@ public class DiceManager2 : MonoBehaviour {
     Material currentMaterial;
     // Use this for initialization
     [SerializeField]
-    Material D4_Material;
+    Color[] dieColor;
+    [SerializeField]
+    Color diceTextDarkColor = Color.black;
+    [SerializeField]
+    Color diceTextLightColor = Color.white;
+    [SerializeField]
+    float DiceColorIntensity = 0.1f;
+
 
     private void Awake()
     {
@@ -239,32 +246,50 @@ public class DiceManager2 : MonoBehaviour {
             //newdice.GetComponentInChildren<Renderer>().material.color = collorpickerButton.GetComponent<Image>().color;
             if (newdice.GetComponentInChildren<Dice>().getIsCoin()==false)
             {
-                if (profile==dieMarble)
+                if (profile == dieMarble)
                 {
                     foreach (MeshRenderer child in newdice.GetComponentsInChildren<MeshRenderer>())
                     {
                         if (child.tag == "Marble")
                         {
                             print(child);
-                            print(child.GetComponent<Renderer>().material.GetColor("Color_F8C5F50"));
-                            child.GetComponent<Renderer>().material.SetColor("Color_F8C5F50", diceColor);
-                            
+                            print(child.GetComponent<Renderer>().material.GetColor("_Color"));
+                            child.GetComponent<Renderer>().material.SetColor("_Color", diceColor); /// color ref Color_F8C5F50
                         }
-                            
+
                     }
                 }
                 else
                 {
-                    if(dice == 1)
+                    if (dice == 1)
                     {
-                        newdice.GetComponentInChildren<Renderer>().material = D4_Material;
+                        newdice.GetComponentInChildren<Renderer>().material = currentMaterial; /// D4 changed
                         newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                        newdice.GetComponentInChildren<Renderer>().material.SetFloat("_Intensity", DiceColorIntensity);
+                        if (diceColor == dieColor[0] || diceColor == dieColor[5] || diceColor == dieColor[7] || diceColor == dieColor[8])
+                        {
+                            newdice.GetComponentInChildren<Renderer>().material.SetColor("_TextColor", diceTextLightColor);
+                        }
+                        else
+                        {
+                            newdice.GetComponentInChildren<Renderer>().material.SetColor("_TextColor", diceTextDarkColor);
+                        }
                     }
                     else
                     {
                         newdice.GetComponentInChildren<Renderer>().material = currentMaterial;
                         newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
+                        newdice.GetComponentInChildren<Renderer>().material.SetFloat("_Intensity", 0f);
+                        if (diceColor == dieColor[0] || diceColor == dieColor[5] || diceColor == dieColor[7] || diceColor == dieColor[8])
+                        {
+                            newdice.GetComponentInChildren<Renderer>().material.SetColor("_TextColor", diceTextLightColor);
+                        }
+                        else
+                        {
+                            newdice.GetComponentInChildren<Renderer>().material.SetColor("_TextColor", diceTextDarkColor);
+                        }
                     }
+                   
                 }
                 
             }            
