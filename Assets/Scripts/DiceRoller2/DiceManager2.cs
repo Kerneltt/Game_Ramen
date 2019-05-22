@@ -98,6 +98,8 @@ public class DiceManager2 : MonoBehaviour {
     Color diceTextLightColor = Color.white;
     [SerializeField]
     float DiceColorIntensity = 0.1f;
+    [SerializeField]
+    ParticleSystem endParticle;
 
 
     private void Awake()
@@ -263,7 +265,7 @@ public class DiceManager2 : MonoBehaviour {
                 {
                     if (dice == 1)
                     {
-                        newdice.GetComponentInChildren<Renderer>().material = currentMaterial; /// D4 changed
+                        newdice.GetComponentInChildren<Renderer>().material = currentMaterial; /// Solucion mas simple, mismo material con nuevo shader solo cambiamos parametros del material
                         newdice.GetComponentInChildren<Renderer>().material.color = diceColor;
                         newdice.GetComponentInChildren<Renderer>().material.SetFloat("_Intensity", DiceColorIntensity);
                         if (diceColor == dieColor[0] || diceColor == dieColor[5] || diceColor == dieColor[7] || diceColor == dieColor[8])
@@ -456,6 +458,11 @@ public class DiceManager2 : MonoBehaviour {
                         {
                             print("coinHit");
                             raycastHit.collider.gameObject.transform.parent.gameObject.SetActive(false);
+                            if (gameObject.activeInHierarchy)
+                            {
+                                ParticleSystem newpart = Instantiate(endParticle);
+                                newpart.transform.position = gameObject.transform.position;
+                            }
                         }
                         if (raycastHit.collider.gameObject.GetComponent<Dice>().locked)
                         {
