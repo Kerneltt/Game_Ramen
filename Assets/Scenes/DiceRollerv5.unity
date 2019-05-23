@@ -90,7 +90,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000000, guid: aedacb718f7ba4e99902a50a1ddf5d20,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5345,7 +5345,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 30.009447
+  field of view: 30.04069
   orthographic: 1
   orthographic size: 11.16
   m_Depth: -1
@@ -14751,6 +14751,8 @@ MonoBehaviour:
   diceTextDarkColor: {r: 0, g: 0, b: 0, a: 1}
   diceTextLightColor: {r: 0.8301887, g: 0.53438693, b: 0.17621933, a: 1}
   DiceColorIntensity: 0.2
+  endParticle: {fileID: 7298865910185843932, guid: 590d7541a37a75f419783f513220daff,
+    type: 3}
 --- !u!4 &1453620843
 Transform:
   m_ObjectHideFlags: 0

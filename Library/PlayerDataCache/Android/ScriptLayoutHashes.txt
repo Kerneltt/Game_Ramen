@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-E:/Relato/PizzaNGames/Builds/GameRamen/Anndroid/GameRamen.apk
+D:/Desktop/Unity Proyects/GameRamen/builds/android/gameramen.apk
 SceneListBegin?
 Assets/Scenes/DiceRollerv5.unity
 SceneListEnd?
@@ -155,7 +155,7 @@ a53651ee3996fbba20dfe0fce02f0b23 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 df0f5fcfe1073c0aae5d73e0d3ea7642 Assembly-CSharp.dll:.ResourceList
 e7fa2d600dd0624fdf6d348bfe4bef18 Assembly-CSharp.dll:.DiceTester
 9a5700c81f605d77c9f5983a56a10388 Assembly-CSharp.dll:.TotalsManager
-722a9efca4fd373beb3da7e788771ba6 Assembly-CSharp.dll:.FPS_Toggle
+1a6da8cf83459f2196fc91e1fb1b283a Assembly-CSharp.dll:.FPS_Toggle
 b73a1a8821c1d641f2f038239ea62316 Assembly-CSharp.dll:.MultiplierManager
 f050e4ebd311386367bb1906f9218b01 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LWRPAdditionalLightData
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -209,5 +209,5 @@ c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 ac6acd886c54c48c599ab5fed5781ea7 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AmbientOcclusion
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-2081e2ab62d535c10904923603ecfdb6 Assembly-CSharp.dll:.DiceManager2
+b1baa8fdcb03618cc7aaf30e7edf3913 Assembly-CSharp.dll:.DiceManager2
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Detector
