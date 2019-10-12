@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-D:/Desktop/Unity Proyects/GameRamen/builds/android/gameramen.apk
+E:/Relato/Builds/DiceRoller/DiceRollerDemo.apk
 SceneListBegin?
 Assets/Scenes/DiceRollerv5.unity
 SceneListEnd?

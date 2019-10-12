@@ -120,7 +120,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.1
+  bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Company.GameRamen
+    Android: com.RhoSigma.GameRamen
     iOS: com.RhoSigma.GameRamen
   buildNumber: {}
   AndroidBundleVersionCode: 1
@@ -244,11 +244,11 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.3d@1.0.2
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  AndroidTargetArchitectures: 5
+  AndroidTargetArchitectures: 7
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: E:/Relato/PizzaNGames/Android Keys/game_ramen.keystore
+  AndroidKeyaliasName: gameramen
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -309,6 +309,48 @@ PlayerSettings:
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 432
+      m_Height: 432
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 324
+      m_Height: 324
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 216
+      m_Height: 216
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 162
+      m_Height: 162
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 108
+      m_Height: 108
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 85019e0395537a746a9c7b34b9c7bcf2, type: 3}
+      - {fileID: 2800000, guid: b1400a348f7cf224ea034f143e6128fa, type: 3}
+      m_Width: 81
+      m_Height: 81
+      m_Kind: 2
+      m_SubKind: 
+    - m_Textures:
       - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
       m_Width: 192
       m_Height: 192
@@ -343,48 +385,6 @@ PlayerSettings:
       m_Width: 36
       m_Height: 36
       m_Kind: 1
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 432
-      m_Height: 432
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 324
-      m_Height: 324
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 216
-      m_Height: 216
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 162
-      m_Height: 162
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 108
-      m_Height: 108
-      m_Kind: 2
-      m_SubKind: 
-    - m_Textures:
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      - {fileID: 2800000, guid: d1ebf49f842814ae0a3010b9f4a5e9ef, type: 3}
-      m_Width: 81
-      m_Height: 81
-      m_Kind: 2
       m_SubKind: 
   - m_BuildTarget: iPhone
     m_Icons:
@@ -780,14 +780,16 @@ PlayerSettings:
     27: UNITY_POST_PROCESSING_STACK_V2
     28: UNITY_POST_PROCESSING_STACK_V2
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
   additionalIl2CppArgs: 
-  scriptingRuntimeVersion: 0
-  apiCompatibilityLevelPerPlatform: {}
+  scriptingRuntimeVersion: 1
+  apiCompatibilityLevelPerPlatform:
+    Android: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_3D
@@ -868,7 +870,7 @@ PlayerSettings:
   facebookStatus: 1
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 6
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   projectName: 
