@@ -1985,157 +1985,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 168670605}
-  - component: {fileID: 168670604}
   m_Layer: 0
   m_Name: Screenshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &168670604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168670603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34f3be723b7d574b88248c5ed72fdaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  list:
-  - cam: {fileID: 456805275}
-    deleteQuestion: 0
-    hotkey: 32
-  settings:
-    signatureColor:
-      r: 1
-      g: 0
-      b: 0.5
-      a: 1
-    customFileName: 
-    includeProject: 1
-    includeCamera: 0
-    includeDate: 0
-    includeResolution: 0
-    includeCounter: 1
-    counter: 0
-    fileType: 1
-    applicationPath: 0
-    customDirectoryName: 
-    captureMethod: 0
-    singleCamera: 0
-    renderSizeMultiplier: 1
-    captureSizeMultiplier: 1
-    cutoutPosition: {x: 0, y: 0}
-    cutoutSize: {x: 0, y: 0}
-  foldoutSettings: 1
-  lastCamID: 0
-  lastCam: {fileID: 456805277}
-  cutoutBoxStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_Active:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_ScaledBackgrounds: []
-      m_TextColor:
-        r: 0
-        g: 0
-        b: 0
-        a: 1
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  lastP: {x: 0, y: 0}
-  lastS: {x: 0, y: 0}
-  timer: -2.4399998
+  m_IsActive: 0
 --- !u!4 &168670605
 Transform:
   m_ObjectHideFlags: 0
@@ -3882,33 +3738,13 @@ GameObject:
   m_Component:
   - component: {fileID: 333414105}
   - component: {fileID: 333414104}
-  - component: {fileID: 333414103}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &333414103
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333414102}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_IsActive: 0
 --- !u!320 &333414104
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -3916,7 +3752,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333414102}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 511e520d8a48bb547bf960f049b77a37, type: 2}
   m_InitialState: 1
@@ -3925,7 +3761,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 114504610954075522, guid: 511e520d8a48bb547bf960f049b77a37, type: 2}
-    value: {fileID: 333414103}
+    value: {fileID: 0}
   - key: {fileID: 114309019159253084, guid: 511e520d8a48bb547bf960f049b77a37, type: 2}
     value: {fileID: 0}
   - key: {fileID: 114517040788426832, guid: 511e520d8a48bb547bf960f049b77a37, type: 2}
@@ -5593,7 +5429,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 30.021376
+  field of view: 30
   orthographic: 1
   orthographic size: 11.16
   m_Depth: -1
@@ -9003,10 +8839,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "- Long press for dice settings \n- Double tap to save dice \n- Two finger
-    swipe to navigate around boards \n- Tap trash can to clean board or drag a dice
-    to delete one by one \n- Tap trash can to clean board or drag a dice to delete
-    one by one \n- Tap trash can to clean board or drag a dice to delete one by one"
+  m_Text: "- Tap and drag to select and move a dice\n- Tap and hold to freeze a dice
+    / tap to unfreeze\n- Two finger horizontal swipe to navigate around boards \n-
+    Tap trash icon to clear the board or drag a dice to delete it one at the time"
 --- !u!222 &774321124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14713,7 +14548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423469498
 Transform:
   m_ObjectHideFlags: 0
@@ -15148,7 +14983,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: dfded448765c75147bfe8368d35cb0c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9f60320453fe8948966b642ce68c601, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
